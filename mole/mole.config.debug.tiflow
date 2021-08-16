@@ -1,0 +1,7 @@
+help = debug config for mole
+abbr = mole.conf.dbg
+
+[val2env]
+tidb.cluster = fake-cluster-name
+bench.run.begin = 1628900347
+bench.run.end = 1628900389

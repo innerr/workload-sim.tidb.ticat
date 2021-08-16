@@ -1,0 +1,4 @@
+help = load tpcc data, prepare for workload-simulating test
+abbr = selftest.sim.pp
+
+flow = db.conf.test cluster=test-sim : tpcc.conf.min : mole.precheck :  db.rm : db.new : tpcc.load

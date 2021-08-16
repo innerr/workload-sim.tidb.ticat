@@ -1,0 +1,9 @@
+[submodule "repos/mole"]
+	path = repos/mole
+	url = https://github.com/mashenjun/mole
+[submodule "helper/ticat.helper.bash"]
+	path = helper/ticat.helper.bash
+	url = https://github.com/innerr/ticat.helper.bash
+[submodule "helper/tiup.helper.bash"]
+	path = helper/tiup.helper.bash
+	url = https://github.com/innerr/tiup.helper.bash

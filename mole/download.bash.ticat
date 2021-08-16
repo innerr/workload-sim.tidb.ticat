@@ -1,0 +1,29 @@
+help = download keyviz and metrics data from tidb cluster
+abbr = dl
+
+[arg]
+download-dir|dir = ''
+cluster-name|cluster = ''
+pd-pwd = ''
+pd-user = root
+begin = ''
+end = ''
+
+[arg2env]
+mole.dir = download-dir
+tidb.cluster = cluster-name
+tidb.pd.user = pd-user
+tidb.pd.pwd = pd-pwd
+bench.run.begin = begin
+bench.run.end = end
+
+[env]
+mole.dir = read
+tidb.cluster = read
+tidb.pd.user = read
+tidb.pd.pwd = may-read
+bench.run.begin = read
+bench.run.end = read
+
+[dep]
+go = to build mole binary

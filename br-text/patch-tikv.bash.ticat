@@ -1,0 +1,14 @@
+help = change tidb.version to local tikv binary to support br-text
+abbr = patch-kv|tikv|kv
+
+[arg]
+origin-version|version|ver = ''
+backup-dir|dir = ''
+
+[arg2env]
+tidb.version = origin-version
+br.backup-dir = backup-dir
+
+[env]
+br.backup-dir = read
+tidb.version = read : may-write

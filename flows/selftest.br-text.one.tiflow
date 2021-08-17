@@ -1,0 +1,15 @@
+help = test br-text with workloads
+
+flow = db.conf.test cluster=test-br-t : br-text.patch-kv : db.rm : db.new : tidb.backup.gen-tag : \
+	[[bench.workload]].load : br-text.backup : db.clean : db.up : br-text.restore : [[bench.workload]].run
+
+[arg]
+br-backup-dir|br-dir = ''
+br-skip-exist = false
+
+[arg2env]
+br.backup-dir = br-backup-dir
+tidb.backup.skip-exist = br-skip-exist
+
+[env]
+bench.workload = read

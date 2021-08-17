@@ -1,0 +1,14 @@
+help = restore tidb cluster data
+abbr = br-t.rs|r|R
+
+flow = db.clean : db.start : br-text.lib.restore
+
+[arg]
+backup-dir|dir = ''
+cluster-name|cluster|name|n|N = ''
+tag|t|T = ''
+
+[arg2env]
+br.backup-dir = backup-dir
+tidb.cluster = cluster-name
+tidb.backup.tag = tag

@@ -6,13 +6,16 @@ here=`cd $(dirname ${BASH_SOURCE[0]}) && pwd`
 env=`cat "${1}/env"`
 shift
 
-## Args checking and handling
+## Login info of pd
 #
 pd_user=`must_env_val "${env}" 'tidb.pd.user'`
 pd_pwd=`env_val "${env}" 'tidb.pd.pwd'`
 if [ ! -z "${pd_pwd}" ]; then
 	pd_pwd="-p ${pd_pwd} "
 fi
+
+## Dirs and metrics define file
+#
 dir=`must_env_val "${env}" 'mole.dir'`
 mkdir -p "${dir}"
 
@@ -27,6 +30,8 @@ if [ ! -f "${metrics_yaml}" ]; then
 	fi
 fi
 
+## Get addresses and begin/end
+#
 name=`must_env_val "${env}" 'tidb.cluster'`
 begin=`must_env_val "${env}" 'bench.run.begin'`
 end=`must_env_val "${env}" 'bench.run.end'`
@@ -39,13 +44,7 @@ prom_addr=`must_prometheus_addr "${name}"`
 
 ## Build mole
 #
-(
-	cd "${here}/../repos/mole"
-	if [ ! -f "bin/mole" ]; then
-		echo "[:(] can't find bin from build dir: mole" >&2
-		exit 1
-	fi
-)
+build_mole "${here}/../repos/mole"
 bin="${here}/../repos/mole/bin/mole"
 
 ## Download metrics

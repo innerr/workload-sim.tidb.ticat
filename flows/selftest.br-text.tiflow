@@ -1,0 +1,14 @@
+help = test br-text with tpcc and sysbench (and other workloads)
+abbr = selftest.br-t
+
+flow = \
+	tpcc.conf.min : selftest.br-text.one [[br.backup-dir]] : e.-- : \
+	sb.conf.min   : selftest.br-text.one [[br.backup-dir]] : e.-- : \
+	tpch.conf.min : selftest.br-text.one [[br.backup-dir]] : e.-- : \
+	dbg.echo done
+
+[arg]
+backup-dir|dir = /tmp/test-br
+
+[arg2env]
+br.backup-dir = backup-dir

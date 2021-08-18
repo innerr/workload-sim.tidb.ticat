@@ -1,4 +1,5 @@
 help = load tpcc data, then run workload-simulating test
 tags = selftest
+abbr = st.sim
 
 flow = selftest.sim.prepare : selftest.sim.run dir=/tmp/test-sim : db.rm

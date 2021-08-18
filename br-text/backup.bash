@@ -28,8 +28,8 @@ else
 	checksum=" --checksum=false"
 fi
 
-target=`must_env_val "${env}" 'br.target'`
-if [ -z "${target}" ]; then
+target=`env_val "${env}" 'br.target'`
+if [ -z "${target}" ] || [ "${target}" == '-full' ] || [ "${target}" == '--full' ]; then
 	target="full"
 else
 	target="db --db ${target}"
@@ -37,7 +37,7 @@ fi
 
 ## Handle existed data
 #
-if [ -f "${dir}/backupmeta" ]; then
+if [ -f "${dir}/backup.lock" ]; then
 	if [ "${skip_exist}" == 'true' ]; then
 		echo "[:-] '${dir}' data exist, skipped"
 		exit 0
@@ -56,4 +56,8 @@ bin=`build_br_t "${here}/../repos/br-text"`
 # TODO: get user name from tiup
 mkdir -p "${dir}" && chown -R tidb:tidb "${dir}"
 
-"${bin}" backup ${target} --pd "${pd}" -s "${dir}" --check-requirements=false ${checksum} --concurrency "${threads}"
+#echo "${bin}" backup ${target} --pd "${pd}" -s "${dir}" --check-requirements=false${checksum} --concurrency "${threads}"
+#"${bin}" backup ${target} --pd "${pd}" -s "${dir}" --check-requirements=false${checksum} --concurrency "${threads}"
+
+echo "${bin}" backup ${target} --pd "${pd}" -s "${dir}" --check-requirements=false${checksum}
+"${bin}" backup ${target} --pd "${pd}" -s "${dir}" --check-requirements=false${checksum}

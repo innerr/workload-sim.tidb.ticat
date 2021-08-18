@@ -1,10 +1,12 @@
 help = run workload-simulating test
 
-flow = db.conf.test cluster=test-sim : tpcc.conf.min dur=1m : bench.meta.100 : db.stop : db.up : \
-	bench.run : mole.dl : bench.record.show
-
 [arg]
 download-dir|dir = ''
 
 [arg2env]
 mole.dir = download-dir
+
+[flow/]
+	db.conf.test cluster=test-sim : tpcc.conf.min dur=1m : bench.meta.100 : db.stop : db.up :
+	bench.run : mole.dl : bench.record.show
+[/flow]

@@ -25,11 +25,12 @@ else
 	checksum=" --checksum=false"
 fi
 
-target=`must_env_val "${env}" 'br.target'`
+target=`env_val "${env}" 'br.target'`
 if [ -z "${target}" ]; then
 	target="full"
 else
 	target="db --db ${target}"
 fi
 
-"${bin}" restore ${target} --pd "${pd}" -s "${dir}" --check-requirements=false ${checksum} --concurrency "${threads}"
+echo "${bin}" restore ${target} --pd "${pd}" -s "${dir}" --check-requirements=false${checksum} --concurrency "${threads}"
+"${bin}" restore ${target} --pd "${pd}" -s "${dir}" --check-requirements=false${checksum} --concurrency "${threads}"

@@ -1,14 +1,18 @@
 help = test br-text with tpcc and sysbench (and other workloads)
 abbr = selftest.br-t
 
-flow = \
-	tpcc.conf.min : selftest.br-text.one br-dir=[[br.backup-dir]] br-target=test   : e.-- : \
-	sb.conf.min   : selftest.br-text.one br-dir=[[br.backup-dir]] br-target=sbtest : e.-- : \
-	tpch.conf.min : selftest.br-text.one br-dir=[[br.backup-dir]] br-target=test   : e.-- : \
-	dbg.echo done
-
 [arg]
-backup-dir|dir = /tmp/test-br
+## can be 'br' or 'br-t'
+br = br-t
 
-[arg2env]
-br.backup-dir = backup-dir
+backup-dir|dir = /tmp/test-br
+checksum|cs = false
+threads|t|T = 1
+target-db|target|db = ''
+
+[flow/]
+	tpcc.conf.min  : selftest.br-text.one br=[[br]] dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset :
+	sb.conf.min    : selftest.br-text.one br=[[br]] dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset :
+	tpch.conf.min  : selftest.br-text.one br=[[br]] dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset :
+	dbg.echo done
+[/flow]

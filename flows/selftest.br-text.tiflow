@@ -2,9 +2,9 @@ help = test br-text with tpcc and sysbench (and other workloads)
 abbr = selftest.br-t
 
 flow = \
-	tpcc.conf.min : selftest.br-text.one [[br.backup-dir]] : e.-- : \
-	sb.conf.min   : selftest.br-text.one [[br.backup-dir]] : e.-- : \
-	tpch.conf.min : selftest.br-text.one [[br.backup-dir]] : e.-- : \
+	tpcc.conf.min : selftest.br-text.one br-dir=[[br.backup-dir]] br-target=test   : e.-- : \
+	sb.conf.min   : selftest.br-text.one br-dir=[[br.backup-dir]] br-target=sbtest : e.-- : \
+	tpch.conf.min : selftest.br-text.one br-dir=[[br.backup-dir]] br-target=test   : e.-- : \
 	dbg.echo done
 
 [arg]

@@ -7,10 +7,12 @@ flow = db.conf.test cluster=test-br-t : br-text.patch-kv : db.rm : db.new : tidb
 br-backup-dir|br-dir = ''
 br-skip-exist = false
 br-checksum = false
+br-target = ''
 
 [arg2env]
 br.backup-dir = br-backup-dir
 br.checksum = br-checksum
+br.target = br-target
 tidb.backup.skip-exist = br-skip-exist
 
 [env]

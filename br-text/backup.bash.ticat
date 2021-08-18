@@ -7,16 +7,20 @@ cluster-name|cluster|name|n|N = ''
 tag|t|T = ''
 skip-exist|skip|s|S = true
 threads|thread|thrd = 4
+check-checksum|checksum = true
 
 [arg2env]
 br.backup-dir = backup-dir
 br.threads = threads
+br.checksum = check-checksum
 tidb.cluster = cluster-name
 tidb.backup.tag = tag
 tidb.backup.skip-exist = skip-exist
 
 [env]
 br.backup-dir = read
+br.threads = read
+br.checksum = read
 tidb.cluster = read
 tidb.backup.tag = read
 tidb.backup.skip-exist = read

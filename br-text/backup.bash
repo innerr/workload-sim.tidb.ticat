@@ -20,6 +20,14 @@ dir="${dir_root}/br-t${tag}"
 skip_exist=`must_env_val "${env}" 'tidb.backup.skip-exist'`
 skip_exist=`to_true "${skip_exist}"`
 
+checksum=`must_env_val "${env}" 'br.checksum'`
+checksum=`to_true "${checksum}"`
+if [ "${checksum}" == 'true' ]; then
+	checksum=" "
+else
+	checksum=" --checksum=false"
+fi
+
 ## Handle existed data
 #
 if [ -f "${dir}/backupmeta" ]; then
@@ -41,4 +49,4 @@ bin=`build_br_t "${here}/../repos/br-text"`
 # TODO: get user name from tiup
 mkdir -p "${dir}" && chown -R tidb:tidb "${dir}"
 
-"${bin}" backup full --pd "${pd}" -s "${dir}" --check-requirements=false --concurrency "${threads}"
+"${bin}" backup full --pd "${pd}" -s "${dir}" --check-requirements=false${checksum} --concurrency "${threads}"

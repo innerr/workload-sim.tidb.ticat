@@ -7,10 +7,24 @@ env_file="${1}/env"
 env=`cat "${env_file}"`
 shift
 
-dir=`must_env_val "${env}" 'br.backup-dir'`
+if [ ! -z "${1+x}" ]; then
+	tikv_bin="${1}"
+fi
+if [ -z "${tikv_bin}" ]; then
+	debug=`must_env_val "${env}" 'br-text.tikv.debug-build'`
+	tikv_bin=`build_tikv "${here}/../repos/tikv" "${debug}"`
+else
+	tikv_bin="${1}"
+fi
+
+if [ ! -f "${tikv_bin}" ]; then
+		echo "[:(] can't find built tikv bin '${tikv_bin}'" >&2
+		exit 1
+fi
+
 origin=`must_env_val "${env}" 'tidb.version'`
 raw="${origin%%+*}"
-patched="${raw}+${dir}"
+patched="${raw}+${tikv_bin}"
 
 if [ "${patched}" != "${origin}" ]; then
 	if [ "${raw}" != "${origin}" ]; then

@@ -1,0 +1,13 @@
+help = mole test
+
+flow = db.conf.test cluster=test-mole : mole.precheck :  db.rm : db.new : \
+	[[bench.workload]].load : bench.run : mole.dl
+
+[arg]
+download-dir|dir = ''
+
+[arg2env]
+mole.dir = download-dir
+
+[env]
+bench.workload =read

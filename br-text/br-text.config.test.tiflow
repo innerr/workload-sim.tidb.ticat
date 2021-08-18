@@ -1,12 +1,12 @@
 help = setup br-text config
 tags = config
-abbr = br-t.conf
+abbr = br-t.conf.t
 
 [arg]
-backup-dir|dir|d = ''
-threads|thread|t|T = ''
-cluster-name|cluster|name|n|N = ''
-check-checksum|checksum = true
+backup-dir|dir|d = /tmp/test-br
+threads|thread|t|T = 1
+cluster-name|cluster|name|n|N = test-br-t
+check-checksum|checksum = false
 target-db|target|db = ''
 
 [arg2env]

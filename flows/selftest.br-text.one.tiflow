@@ -1,19 +1,33 @@
 help = test br-text with workloads
 
-flow = db.conf.test cluster=test-br-t : br-text.patch-kv : db.rm : db.new : tidb.backup.gen-tag : \
-	[[bench.workload]].load : br-text.backup : db.clean : db.up : br-text.restore : [[bench.workload]].run
-
 [arg]
-br-backup-dir|br-dir = ''
-br-skip-exist = false
-br-checksum = false
-br-target = ''
+backup-dir|dir = ''
+checksum|cs = false
+threads|t|T = 1
+target-db|target|db = ''
+br = br-t
+skip-exist = false
 
 [arg2env]
-br.backup-dir = br-backup-dir
-br.checksum = br-checksum
-br.target = br-target
-tidb.backup.skip-exist = br-skip-exist
+br.backup-dir = backup-dir
+br.checksum = checksum
+br.threads = threads
+br.target = target-db
+tidb.backup.skip-exist = skip-exist
 
 [env]
 bench.workload = read
+
+[flow/]
+	bench.meta.100 :
+	db.conf.test cluster=test-br-t : [[br]].patch-kv : db.rm : db.new :
+
+	tidb.backup.gen-tag : [[bench.workload]].load :
+
+	mark-time [[br]].backup.begin  : [[br]].backup  : mark-time [[br]].backup.end  : bench.gen-tag : bench.dur.record [[br]].backup  :
+	db.clean : db.up :
+	mark-time [[br]].restore.begin : [[br]].restore : mark-time [[br]].restore.end : bench.gen-tag : bench.dur.record [[br]].restore :
+
+	[[bench.workload]].run :
+	bench.dur.show
+[/flow]

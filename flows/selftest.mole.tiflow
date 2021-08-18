@@ -1,10 +1,11 @@
 help = test mole with different workloads
 
-flow = \
-	tpcc.conf.min : selftest.mole.one dir=[[dir]]/tpcc : e.-- : \
-	tpch.conf.min : selftest.mole.one dir=[[dir]]/tpch : e.-- : \
-	sb.conf.min   : selftest.mole.one dir=[[dir]]/sb   : e.-- : \
-	dbg.echo 'done(TODO compare results)'
-
 [arg]
 dir = /tmp/test-mole
+
+[flow/]
+	tpcc.conf.min : selftest.mole.one dir=[[dir]]/tpcc : env.reset :
+	tpch.conf.min : selftest.mole.one dir=[[dir]]/tpch : env.reset :
+	sb.conf.min   : selftest.mole.one dir=[[dir]]/sb   : env.reset :
+
+	dbg.echo 'done (TODO compare results)'

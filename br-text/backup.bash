@@ -28,6 +28,13 @@ else
 	checksum=" --checksum=false"
 fi
 
+target=`must_env_val "${env}" 'br.target'`
+if [ -z "${target}" ]; then
+	target="full"
+else
+	target="db --db ${target}"
+fi
+
 ## Handle existed data
 #
 if [ -f "${dir}/backupmeta" ]; then
@@ -49,4 +56,4 @@ bin=`build_br_t "${here}/../repos/br-text"`
 # TODO: get user name from tiup
 mkdir -p "${dir}" && chown -R tidb:tidb "${dir}"
 
-"${bin}" backup full --pd "${pd}" -s "${dir}" --check-requirements=false${checksum} --concurrency "${threads}"
+"${bin}" backup ${target} --pd "${pd}" -s "${dir}" --check-requirements=false ${checksum} --concurrency "${threads}"

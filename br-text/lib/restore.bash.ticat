@@ -1,18 +1,30 @@
 help = restore tidb cluster data
-abbr = br-t.rs|r|R
-
-flow = db.clean : db.start : br-text.lib.restore
+abbr = rs|r|R
 
 [arg]
 backup-dir|dir = ''
 cluster-name|cluster|name|n|N = ''
-tag|t|T = ''
+tag = ''
+threads|thread|thrd = 4
 check-checksum|checksum = true
 target = ''
 
 [arg2env]
 br.backup-dir = backup-dir
+br.threads = threads
 br.checksum = check-checksum
 br.target = target
 tidb.cluster = cluster-name
 tidb.backup.tag = tag
+
+[env]
+br.backup-dir = read
+br.threads = read
+br.checksum = read
+br.target = read
+tidb.cluster = read
+tidb.backup.tag = read
+
+[dep]
+tiup = to display tidb cluster info and run br
+go = to build br-text

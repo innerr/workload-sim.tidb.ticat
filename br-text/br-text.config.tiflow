@@ -6,10 +6,14 @@ abbr = br-t.conf
 backup-dir|dir|d = ''
 threads|thread|t|T = ''
 cluster-name|cluster|name|n|N = ''
+check-checksum|checksum = true
+target = ''
 
 [arg2env]
 br.backup-dir = backup-dir
 br.threads = threads
+br.checksum = check-checksum
+br.target = target
 tidb.cluster = cluster-name
 
 [val2env]

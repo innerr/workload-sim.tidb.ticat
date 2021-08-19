@@ -2,9 +2,11 @@ help = mole test
 
 [arg]
 download-dir|dir = ''
+yaml = test
 
 [arg2env]
 mole.dir = download-dir
+tidb.tiup.yaml = yaml
 
 [env]
 bench.workload =read

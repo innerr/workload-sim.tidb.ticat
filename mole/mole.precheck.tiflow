@@ -1,5 +1,4 @@
 help = mole precheck: ensure the binary of mole is built, etc
-abbr = check|ch|ck
+abbr = mole.check|ch|ck
 
-[dep]
-go = to build mole binary
+flow = mole.install-conda

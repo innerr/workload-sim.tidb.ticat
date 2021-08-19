@@ -10,7 +10,7 @@ conda_dir=`must_env_val "${env}" 'conda.dir'`
 conda_dir=`eval echo "${conda_dir}"`
 conda="${conda_dir}/bin/conda"
 
-echo "conda=${conda}" >> "${env_file}"
+echo "conda.bin=${conda}" >> "${env_file}"
 
 if [[ -e "${conda}" ]]; then
   echo "miniconda already installed"

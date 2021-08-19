@@ -5,7 +5,9 @@ abbr = st.br-t.cmp
 backup-dir|dir = /tmp/test-br
 checksum|cs = false
 threads|t|T = 1
-target-db|target|db = -full
+
+# target-db|target|db = -full
+target-db|target|db = test
 
 [flow/]
 	selftest.br-text dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] br=br-t : env.reset :

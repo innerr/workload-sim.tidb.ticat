@@ -22,11 +22,11 @@ bench.workload = read
 	bench.meta.100 :
 	db.conf.test cluster=test-br-t : [[br]].patch-kv : db.rm : db.new :
 
-	tidb.backup.gen-tag : [[bench.workload]].load :
+	tidb.backup.gen-tag : [[bench.workload]].load : [[bench.workload]].run :
 
-	mark-time [[br]].backup.begin  : [[br]].backup  : mark-time [[br]].backup.end  : bench.gen-tag : bench.dur.record [[br]].backup  :
+	mark-time [[br]].backup.begin  : [[br]].backup  : mark-time [[br]].backup.end  : bench.gen-tag add-key=br.threads : bench.dur.record [[br]].backup  :
 	db.clean : db.up :
-	mark-time [[br]].restore.begin : [[br]].restore : mark-time [[br]].restore.end : bench.gen-tag : bench.dur.record [[br]].restore :
+	mark-time [[br]].restore.begin : [[br]].restore : mark-time [[br]].restore.end : bench.gen-tag add-key=br.threads : bench.dur.record [[br]].restore :
 
 	[[bench.workload]].run :
 	bench.dur.show

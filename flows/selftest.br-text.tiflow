@@ -8,11 +8,12 @@ br = br-t
 backup-dir|dir = /tmp/test-br
 checksum|cs = false
 threads|t|T = 1
-target-db|target|db = ''
+target-db|target|db = -full
 
 [flow/]
-	tpcc.conf.min  : selftest.br-text.one br=[[br]] dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset :
-	sb.conf.min    : selftest.br-text.one br=[[br]] dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset :
-	tpch.conf.min  : selftest.br-text.one br=[[br]] dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset :
+	tpcc.conf.min               : selftest.br-text.one br=[[br]] dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset :
+	tpch.conf.min tiflash=false : selftest.br-text.one br=[[br]] dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset :
+	sb.conf.min                 : selftest.br-text.one br=[[br]] dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset :
+	ycsb.conf.min               : selftest.br-text.one br=[[br]] dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset :
 	dbg.echo done
 [/flow]

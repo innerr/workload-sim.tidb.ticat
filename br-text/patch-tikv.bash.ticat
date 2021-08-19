@@ -4,7 +4,7 @@ abbr = patch-kv|tikv|kv
 [arg]
 tikv-bin-path = ''
 origin-version|version|ver = ''
-debug-build = false
+debug-build|debug = false
 
 [arg2env]
 br.tikv-bin = tikv-bin-path

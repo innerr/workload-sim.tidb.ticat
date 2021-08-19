@@ -12,6 +12,7 @@ if [ ! -z "${1+x}" ]; then
 fi
 if [ -z "${tikv_bin}" ]; then
 	debug=`must_env_val "${env}" 'br-text.tikv.debug-build'`
+	echo "[:-] use debug build = '${debug}'"
 	tikv_bin=`build_tikv "${here}/../repos/tikv" "${debug}"`
 else
 	tikv_bin="${1}"

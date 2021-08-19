@@ -6,6 +6,6 @@ abbr = cv
 [arg2env]
 
 [env]
-conda = read
+conda.bin = read
 
 [dep]

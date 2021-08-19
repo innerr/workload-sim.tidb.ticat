@@ -5,6 +5,6 @@ here=`cd $(dirname ${BASH_SOURCE[0]}) && pwd`
 
 env=`cat "${1}/env"`
 
-conda=`must_env_val "${env}" 'conda'`
+conda=`must_env_val "${env}" 'conda.bin'`
 
 ${conda} --version

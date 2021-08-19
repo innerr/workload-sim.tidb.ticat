@@ -9,6 +9,7 @@ conda.dir = conda-dir
 
 [env]
 conda.dir = read
+conda = write
 
 [dep]
 wget = to download miniconda

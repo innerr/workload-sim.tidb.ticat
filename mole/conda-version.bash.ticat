@@ -1,0 +1,11 @@
+help = check miniconda version
+abbr = cv
+
+[arg]
+
+[arg2env]
+
+[env]
+conda.bin = read
+
+[dep]

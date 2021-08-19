@@ -1,0 +1,14 @@
+help = install miniconda
+abbr = ins.conda
+
+[arg]
+conda-dir|dir = "${HOME}/miniconda"
+
+[arg2env]
+conda.dir = conda-dir
+
+[env]
+conda.dir = read
+
+[dep]
+wget = to download miniconda

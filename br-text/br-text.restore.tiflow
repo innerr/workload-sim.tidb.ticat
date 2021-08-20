@@ -1,5 +1,6 @@
 help = restore tidb cluster data
 abbr = br-t.rs|r|R
+trivial = 3
 
 flow = db.clean : db.start : br-text.lib.restore
 

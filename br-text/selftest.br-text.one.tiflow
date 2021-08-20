@@ -1,4 +1,5 @@
 help = test br-text with workloads
+trivial = 1
 
 [arg]
 backup-dir|dir = ''

@@ -1,0 +1,14 @@
+help = describe a cluster's features
+abbr = feature|ft
+
+[arg]
+mole-work-dir|mole-dir|mole = ''
+conda-dir|conda = "${HOME}/miniconda"
+
+[arg2env]
+mole.dir = mole-work-dir
+conda.dir = conda-dir
+
+[env]
+mole.dir = read
+conda.dir = read

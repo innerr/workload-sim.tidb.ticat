@@ -1,0 +1,11 @@
+help = check miniconda version
+abbr = ver|v|V
+
+[arg]
+conda-dir|dir = "${HOME}/miniconda"
+
+[arg2env]
+conda.dir = conda-dir
+
+[env]
+conda.dir = read

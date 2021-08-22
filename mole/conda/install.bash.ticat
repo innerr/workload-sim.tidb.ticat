@@ -1,5 +1,5 @@
 help = install miniconda
-abbr = ins.conda
+abbr = ins
 
 [arg]
 conda-dir|dir = "${HOME}/miniconda"

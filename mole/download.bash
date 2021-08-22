@@ -19,16 +19,7 @@ fi
 dir=`must_env_val "${env}" 'mole.dir'`
 mkdir -p "${dir}"
 
-metrics_yaml="${dir}/metrics.yaml"
-if [ ! -f "${metrics_yaml}" ]; then
-	if [ -f "${here}/metrics.yaml" ]; then
-		metrics_yaml="${here}/metrics.yaml"
-		echo "[:-] use default metrics.yaml"
-	else
-		echo "[:(] can't find metrics.yaml in dir: '${dir}'" >&2
-		exit 1
-	fi
-fi
+metrics_yaml=`get_metrics_yaml "${env}" "${here}/metrics.yaml}"`
 
 ## Get addresses and begin/end
 #
@@ -42,10 +33,7 @@ end=`to_time_str "${end}"`
 pd_addr=`must_pd_addr "${name}"`
 prom_addr=`must_prometheus_addr "${name}"`
 
-## Build mole
-#
-build_mole "${here}/../repos/mole"
-bin="${here}/../repos/mole/bin/mole"
+bin=`build_mole "${here}/../repos/mole"`
 
 ## Download metrics
 #

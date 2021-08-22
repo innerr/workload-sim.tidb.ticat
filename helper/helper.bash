@@ -63,3 +63,29 @@ function build_tikv()
 		build_bin "${dir}" 'target/release/tikv-server' 'make build'
 	fi
 }
+
+function get_conda()
+{
+	local env="${1}"
+	local conda_dir=`must_env_val "${env}" 'conda.dir'`
+	# TODO: test all platforms
+	local conda_dir=`eval echo "${conda_dir}"`
+	echo "${conda_dir}/bin/conda"
+}
+
+function get_metrics_yaml()
+{
+	local env="${1}"
+	local default_path="${2}"
+
+	local yaml=`env_val "${env}" 'mole.metrics'`
+	if [ -z "${metrics_yaml}" ]; then
+		echo "[:-] use default metrics yaml"
+		local yaml="${default_path}"
+	fi
+
+	if [ ! -f "${yaml}" ]; then
+		echo "[:(] can't find metrics yaml file '${dir}'" >&2
+		exit 1
+	fi
+}

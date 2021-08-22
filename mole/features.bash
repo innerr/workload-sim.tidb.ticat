@@ -24,6 +24,10 @@ echo "[:-] reshape begin"
 for range_dir in "${input_dir}"/*; do
 	range_name=`basename "${range_dir}"`
 	echo "${range_name}:"
+	if [ ! -e "${range_dir}" ]; then
+		echo "[:(] dir not exists, skipped: '${range_dir}'" >&2
+		continue
+	fi
 	"${mole_bin}" reshape \
 		-i "${range_dir}" \
 		-o "${reshaped_dir}/${range_name}" \
@@ -42,6 +46,10 @@ for range_dir in "${input_dir}"/*; do
 	echo "${range_name}:"
 	scores_path="${scores_dir}/${range_name}/scores.csv"
 	mkdir -p `dirname "${scores_path}"`
+	if [ ! -e "${reshaped_dir}/${range_name}" ]; then
+		echo "[:(] dir not exists, skipped: '${reshaped_dir}/${range_name}'" >&2
+		continue
+	fi
 	"${conda_bin}" run -n workload-sim \
 		python3 "${mole_dir}/data-analysis/prom_metrics_feature_score.py" \
 		-f "${feature_function}" \

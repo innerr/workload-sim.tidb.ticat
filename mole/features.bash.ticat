@@ -12,3 +12,7 @@ conda.dir = conda-dir
 [env]
 mole.dir = read
 conda.dir = read
+
+[dep]
+go = to build mole binary
+wget = to download conda

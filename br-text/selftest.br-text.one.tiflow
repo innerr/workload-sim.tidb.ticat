@@ -29,6 +29,5 @@ bench.workload = read
 	db.clean : db.up :
 	mark-time [[br]].restore.begin : [[br]].restore : mark-time [[br]].restore.end : bench.gen-tag add-key=br.threads : bench.dur.record [[br]].restore :
 
-	[[bench.workload]].run :
-	bench.dur.show
+	[[bench.workload]].run : db.rm : bench.dur.show
 [/flow]

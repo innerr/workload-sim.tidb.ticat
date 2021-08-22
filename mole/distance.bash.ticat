@@ -1,0 +1,15 @@
+help = use conda to caculate how similar of two cluster
+
+[arg]
+features-dir-of-cluster-1|cluster1|c1 = ''
+features-dir-of-cluster-2|cluster2|c2 = ''
+conda-dir|dir = "${HOME}/miniconda"
+
+[arg2env]
+conda.dir = conda-dir
+
+[env]
+conda.dir = read
+
+[dep]
+wget = to download conda

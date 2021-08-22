@@ -19,7 +19,7 @@ fi
 dir=`must_env_val "${env}" 'mole.dir'`
 mkdir -p "${dir}"
 
-metrics_yaml=`get_metrics_yaml "${env}" "${here}/metrics.yaml}"`
+metrics_yaml=`get_metrics_yaml "${env}" "${here}/metrics.yaml"`
 
 ## Get addresses and begin/end
 #

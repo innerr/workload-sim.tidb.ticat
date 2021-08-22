@@ -1,1 +1,5 @@
 help = build mole
+
+[dep]
+go = to build mole binary
+wget = to download conda

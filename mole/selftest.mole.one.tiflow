@@ -13,5 +13,5 @@ bench.workload =read
 
 [flow/]
 	db.conf.test cluster=test-mole : mole.precheck :  db.rm : db.new :
-	[[bench.workload]].load : bench.run : mole.dl
+	[[bench.workload]].load : bench.run : mole.download : mole.feature
 [/flow]

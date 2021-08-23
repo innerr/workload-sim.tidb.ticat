@@ -5,9 +5,8 @@ dir = /tmp/test-mole
 yaml = test
 
 [flow/]
-	tpcc.conf.min               : selftest.mole.one yaml=[[yaml]] dir=[[dir]]/tpcc : env.reset :
-	tpch.conf.min tiflash=false : selftest.mole.one yaml=[[yaml]] dir=[[dir]]/tpch : env.reset :
-	sb.conf.min                 : selftest.mole.one yaml=[[yaml]] dir=[[dir]]/sb   :
+tpcc.conf.min               : selftest.mole.one yaml=[[yaml]] dir=[[dir]]/tpcc :
+tpch.conf.min tiflash=false : selftest.mole.one yaml=[[yaml]] dir=[[dir]]/tpch :
+sb.conf.min                 : selftest.mole.one yaml=[[yaml]] dir=[[dir]]/sb   :
 
-	dbg.echo 'done (TODO compare results)'
-[/flow]
+dbg.echo 'done (TODO compare results)'

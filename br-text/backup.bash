@@ -13,7 +13,7 @@ pd=`must_cluster_pd "${name}"`
 
 threads=`must_env_val "${env}" 'br.threads'`
 
-tag=`must_env_val "${env}" 'tidb.backup.tag'`
+tag=`must_env_val "${env}" 'tidb.data.tag'`
 dir_root=`must_env_val "${env}" 'br.backup-dir'`
 dir="${dir_root}/br-t${tag}"
 

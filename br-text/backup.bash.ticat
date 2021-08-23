@@ -16,7 +16,7 @@ br.threads = threads
 br.checksum = check-checksum
 br.target = target-db
 tidb.cluster = cluster-name
-tidb.backup.tag = tag
+tidb.data.tag = tag
 tidb.backup.skip-exist = skip-exist
 
 [env]
@@ -24,7 +24,7 @@ br.backup-dir = read
 br.threads = read
 br.checksum = read
 tidb.cluster = read
-tidb.backup.tag = read
+tidb.data.tag = read
 tidb.backup.skip-exist = read
 
 [dep]

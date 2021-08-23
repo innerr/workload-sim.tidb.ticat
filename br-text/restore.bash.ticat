@@ -1,6 +1,8 @@
 help = restore tidb cluster data
 abbr = rs|r|R
 
+flow = db.clean : db.start
+
 [arg]
 backup-dir|dir = ''
 cluster-name|cluster|name|n|N = ''
@@ -15,14 +17,14 @@ br.threads = threads
 br.checksum = check-checksum
 br.target = target-db
 tidb.cluster = cluster-name
-tidb.backup.tag = tag
+tidb.data.tag = tag
 
 [env]
 br.backup-dir = read
 br.threads = read
 br.checksum = read
 tidb.cluster = read
-tidb.backup.tag = read
+tidb.data.tag = read
 
 [dep]
 tiup = to display tidb cluster info and run br

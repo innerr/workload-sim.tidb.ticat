@@ -26,7 +26,7 @@ else
 fi
 
 target=`env_val "${env}" 'br.target'`
-if [ -z "${target}" ]; then
+if [ -z "${target}" ] || [ "${target}" == '-full' ] || [ "${target}" == '--full' ]; then
 	target="full"
 else
 	target="db --db ${target}"

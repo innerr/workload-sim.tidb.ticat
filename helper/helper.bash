@@ -58,9 +58,9 @@ function build_tikv()
 	local dir="${1}"
 	local debug=`to_true "${2}"`
 	if [ "${debug}" == 'true' ]; then
-		build_bin "${dir}" 'target/debug/tikv-server' 'dist_release'
+		build_bin "${dir}" 'target/debug/tikv-server' 'make build'
 	else
-		build_bin "${dir}" 'target/release/tikv-server' 'make build'
+		build_bin "${dir}" 'target/release/tikv-server' 'make dist_release'
 	fi
 }
 

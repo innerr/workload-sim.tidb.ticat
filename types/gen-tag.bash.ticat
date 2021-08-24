@@ -1,5 +1,0 @@
-help = generate tag by data scale
-abbr = gen-tag|tag
-
-[env]
-bench.workload.tag = write

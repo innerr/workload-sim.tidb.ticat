@@ -1,5 +1,5 @@
 help = config types workload
-abbr = types|tp.conf
+abbr = conf
 
 [arg]
 

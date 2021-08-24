@@ -1,0 +1,7 @@
+help = generate a fixed tag
+
+[env]
+workload.tag.data = write
+
+[val2env]
+workload.tag.data = types

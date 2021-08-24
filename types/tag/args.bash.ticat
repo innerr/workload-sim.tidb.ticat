@@ -1,0 +1,7 @@
+help = generate a fixed tag
+
+[env]
+workload.tag.args = write
+
+[val2env]
+workload.tag.args = default

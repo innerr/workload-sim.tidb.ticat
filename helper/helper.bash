@@ -50,7 +50,7 @@ function build_mole()
 function build_br_t()
 {
 	local dir="${1}"
-	build_bin "${dir}" 'bin/br' 'make br'
+	build_bin "${dir}" 'bin/br' 'make build_br'
 }
 
 function build_tikv()

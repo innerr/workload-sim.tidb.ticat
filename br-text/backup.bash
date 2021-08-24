@@ -51,7 +51,7 @@ if [ -f "${dir}/backup.lock" ]; then
 	fi
 fi
 
-bin=`build_br_t "${here}/../repos/br-text"`
+bin=`build_br_t "${here}/../repos/tidb"`
 
 # TODO: get user name from tiup
 mkdir -p "${dir}" && chown -R tidb:tidb "${dir}"

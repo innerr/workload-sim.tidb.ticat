@@ -7,11 +7,11 @@
 [submodule "helper/tiup.helper.bash"]
 	path = helper/tiup.helper.bash
 	url = https://github.com/innerr/tiup.helper.bash
-[submodule "repos/br-text"]
-	path = repos/br-text
-	url = https://github.com/NingLin-P/br
-	branch = br-text
 [submodule "repos/tikv"]
 	path = repos/tikv
 	url = https://github.com/NingLin-P/tikv
+	branch = br-text
+[submodule "repos/tidb"]
+	path = repos/tidb
+	url = https://github.com/NingLin-P/tidb
 	branch = br-text

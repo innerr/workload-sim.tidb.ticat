@@ -15,7 +15,7 @@ tag=`must_env_val "${env}" 'tidb.data.tag'`
 dir_root=`must_env_val "${env}" 'br.backup-dir'`
 dir="${dir_root}/br-t${tag}"
 
-bin=`build_br_t "${here}/../repos/br-text"`
+bin=`build_br_t "${here}/../repos/tidb"`
 
 checksum=`must_env_val "${env}" 'br.checksum'`
 checksum=`to_true "${checksum}"`

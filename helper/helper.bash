@@ -91,3 +91,29 @@ function get_metrics_yaml()
 
 	echo "${yaml}"
 }
+
+function must_get_mole_collect_dir()
+{
+	local env=""${1}
+	local search_exists=`to_true "${2}"`
+
+	local dir=`must_env_val "${env}" 'mole.dir'`
+	local dir=`must_env_val "${env}" 'mole.dir'`
+	local bench_tag=`must_env_val "${env}" 'bench.tag'`
+	local data_tag=`must_env_val "${env}" 'tidb.data.tag'`
+	local dir="${dir}/${data_tag}+${bench_tag}"
+
+	if [ ! -e "${dir}" ]; then
+		if [ "${search_exists}" == 'true' ]; then
+			echo "[:(] collected data dir '${dir}' not exists, try use parent dir"
+			local dir=`dirname ${dir}`
+		else
+			mkdir -p "${dir}"
+		fi
+	fi
+	if [ ! -d "${dir}" ]; then
+		echo "[:(] dir '${dir}' not exists" >&2
+		exit 1
+	fi
+	echo "${dir}"
+}

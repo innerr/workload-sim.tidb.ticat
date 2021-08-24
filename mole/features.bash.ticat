@@ -1,5 +1,8 @@
 help = describe a cluster's features
 abbr = feature|ft
+trivial = 3
+
+flow = bench.gen-tags
 
 [arg]
 mole-work-dir|mole-dir|mole = ''
@@ -12,6 +15,8 @@ conda.dir = conda-dir
 [env]
 mole.dir = read
 conda.dir = read
+bench.tag = read
+tidb.data.tag = read
 
 [dep]
 go = to build mole binary

@@ -9,8 +9,11 @@ mole.dir = download-dir
 tidb.tiup.yaml = yaml
 
 [env]
-bench.workload =read
+bench.workload = read
 
 [flow/]
 db.conf.test cluster=test-mole : mole.precheck :  db.rm : db.new :
-[[bench.workload]].load : bench.run : mole.collect : mole.features : env.reset
+
+[[bench.workload]].load : bench.run.workload : db.rm :
+
+mole.collect : mole.features : env.reset

@@ -1,0 +1,8 @@
+help = test mole with TPCC
+
+[arg]
+dir = /tmp/test-mole
+yaml = test
+
+[flow/]
+tpcc.conf.min : selftest.mole.workload dir=[[dir]]/tpcc

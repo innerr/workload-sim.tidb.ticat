@@ -1,0 +1,9 @@
+help = config types workload
+abbr = types|tp.conf
+
+[arg]
+
+[arg2env]
+
+[val2env]
+bench.workload = types

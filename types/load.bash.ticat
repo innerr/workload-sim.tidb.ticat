@@ -1,0 +1,20 @@
+help = prepare types data
+abbr = ld|l|L
+
+[arg]
+host|h|H = ''
+port|p|P = ''
+user|u|U = root
+
+[arg2env]
+mysql.host = host
+mysql.port = port
+mysql.user = user
+
+[env]
+mysql.host = read
+mysql.port = read
+mysql.user = read
+
+[dep]
+mysql = as client, to load data

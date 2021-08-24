@@ -1,0 +1,8 @@
+help = config types workload
+
+[arg]
+
+[arg2env]
+
+[val2env]
+bench.workload = types

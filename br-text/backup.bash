@@ -56,8 +56,5 @@ bin=`build_br_t "${here}/../repos/tidb"`
 # TODO: get user name from tiup
 mkdir -p "${dir}" && chown -R tidb:tidb "${dir}"
 
-#echo "${bin}" backup ${target} --pd "${pd}" -s "${dir}" --check-requirements=false${checksum} --concurrency "${threads}"
-#"${bin}" backup ${target} --pd "${pd}" -s "${dir}" --check-requirements=false${checksum} --concurrency "${threads}"
-
-echo "${bin}" backup ${target} --pd "${pd}" -s "${dir}" --check-requirements=false${checksum}
-"${bin}" backup ${target} --pd "${pd}" -s "${dir}" --check-requirements=false${checksum}
+echo "${bin}" backup ${target} --pd "${pd}" -s "${dir}" --check-requirements=false${checksum} --concurrency "${threads}"
+"${bin}" backup ${target} --pd "${pd}" -s "${dir}" --check-requirements=false${checksum} --concurrency "${threads}"

@@ -32,7 +32,7 @@ function build_bin()
 			echo "[:)] found pre-built '${bin_path}' in build dir: '${dir}'" >&2
 			return
 		fi
-		${make_cmd}
+		${make_cmd} 1>&2
 		if [ ! -f "${bin_path}" ]; then
 			echo "[:(] can't build '${bin_path}' from build dir: '${dir}'" >&2
 			exit 1

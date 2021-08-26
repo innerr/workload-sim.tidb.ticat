@@ -1,0 +1,15 @@
+help = do mysql replay, mark begin|end time to env
+trivial = 1
+
+[env]
+br-t.backup.begin = write
+br-t.backup.end = write
+my-rep.rep.begin = write
+my-rep.rep.end = write
+
+[flow/]
+mark-time my-rep.rep.begin :
+mark-time bench.run.begin :
+my-rep.replay :
+mark-time bench.run.end :
+mark-time my-rep.rep.end :

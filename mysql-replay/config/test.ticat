@@ -1,0 +1,23 @@
+help = setup mysql-replay for quick test
+tags = config
+abbr = t
+
+[arg]
+host = 127.0.0.1
+dir = /tmp/my-rep/dump
+network-interface = lo
+
+store-host = 127.0.0.1
+store-dir = /tmp/my-rep/store
+
+dsn = root:@tcp(127.0.0.1:4000)/test
+
+[arg2env]
+my-rep.dump.host = host
+my-rep.dump.dir = dir
+my-rep.dump.ni = network-interface
+
+my-rep.store.host = store-host
+my-rep.store.dir = store-dir
+
+my-rep.replay.dsn = dsn

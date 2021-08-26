@@ -1,0 +1,19 @@
+help = setup mysql-replay
+tags = config
+abbr = conf
+
+[arg]
+host = ''
+dir = ''
+network-interface = ''
+store-host = ''
+store-dir = ''
+dsn = ''
+
+[arg2env]
+my-rep.dump.host = host
+my-rep.dump.dir = dir
+my-rep.dump.ni = network-interface
+my-rep.store.host = store-host
+my-rep.store.dir = store-dir
+my-rep.replay.dsn = dsn

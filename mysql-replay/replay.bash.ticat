@@ -1,0 +1,24 @@
+help = replay SQL flow stored on remote server
+abbr = rep
+
+[arg]
+host = 127.0.0.1
+dir = /tmp/my-rep/store
+dsn = root:@tcp(127.0.0.1:4000)/test
+
+[arg2env]
+my-rep.store.host = host
+my-rep.store.dir = dir
+my-rep.replay.dsn = dsn
+
+[env]
+my-rep.store.host = read
+my-rep.store.dir = read
+my-rep.replay.dsn = read
+
+my-rep.rep.queries = write
+my-rep.rep.queries.err = write
+my-rep.rep.stmt.exe = write
+my-rep.rep.stmt.exe.err = write
+my-rep.rep.stmt.prepares = write
+my-rep.rep.stmt.prepares.err = write

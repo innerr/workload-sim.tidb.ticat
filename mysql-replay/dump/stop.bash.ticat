@@ -1,0 +1,14 @@
+help = stop capturing
+abbr = end|down|dn
+
+[arg]
+host = 127.0.0.1
+dir = /tmp/my-rep/dump
+
+[arg2env]
+my-rep.dump.host = host
+my-rep.dump.dir = dir
+
+[env]
+my-rep.dump.host = read
+my-rep.dump.dir = read

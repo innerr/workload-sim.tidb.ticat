@@ -98,7 +98,6 @@ function must_get_mole_collect_dir()
 	local search_exists=`to_true "${2}"`
 
 	local dir=`must_env_val "${env}" 'mole.dir'`
-	local dir=`must_env_val "${env}" 'mole.dir'`
 	local bench_tag=`must_env_val "${env}" 'bench.tag'`
 	local data_tag=`must_env_val "${env}" 'tidb.data.tag'`
 	local dir="${dir}/${data_tag}+${bench_tag}"

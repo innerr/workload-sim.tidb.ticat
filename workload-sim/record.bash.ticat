@@ -1,0 +1,25 @@
+help = report worload simulating result and record to table
+
+[env]
+bench.begin = read
+
+br-t.backup.begin = read
+br-t.backup.end = read
+br-t.restore.begin = read
+br-t.restore.end = read
+
+bench.run.begin = read
+bench.run.end = read
+my-rep.rep.begin = read
+my-rep.rep.end = read
+
+my-rep.rep.queries = read
+my-rep.rep.queries.err = read
+my-rep.rep.stmt.exe = read
+my-rep.rep.stmt.exe.err = read
+my-rep.rep.stmt.prepares = read
+my-rep.rep.stmt.prepares.err = read
+
+mole.dir = read
+bench.tag = read
+tidb.data.tag = read

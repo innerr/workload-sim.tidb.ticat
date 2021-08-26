@@ -3,6 +3,7 @@ help = use conda to caculate how similar of two cluster
 [arg]
 features-dir-of-cluster-1|cluster1|c1 = ''
 features-dir-of-cluster-2|cluster2|c2 = ''
+result-file-path|path = ''
 conda-dir|dir = "${HOME}/miniconda"
 
 [arg2env]

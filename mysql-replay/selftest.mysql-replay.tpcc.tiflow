@@ -1,0 +1,3 @@
+help = test mysql-replay by TPCC
+
+flow = tpcc.conf.min : st.my-rep.workload

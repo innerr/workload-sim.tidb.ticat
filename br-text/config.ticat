@@ -8,6 +8,7 @@ threads|thread|t|T = ''
 cluster-name|cluster|name|n|N = ''
 check-checksum|checksum = true
 target-db|target|db = ''
+tag = ''
 
 [arg2env]
 br.backup-dir = backup-dir
@@ -15,6 +16,7 @@ br.threads = threads
 br.checksum = check-checksum
 br.target = target-db
 tidb.cluster = cluster-name
+tidb.data.tag = tag
 
 [val2env]
 tidb.backupper = br-text

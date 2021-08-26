@@ -1,0 +1,11 @@
+help = do br-text.backup, mark begin|end time to env
+trivial = 1
+
+[env]
+br-t.backup.begin = write
+br-t.backup.end = write
+
+[flow/]
+mark-time br-t.backup.begin :
+br-t.backup :
+mark-time br-t.backup.end :

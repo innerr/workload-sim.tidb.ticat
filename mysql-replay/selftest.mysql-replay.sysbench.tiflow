@@ -1,0 +1,4 @@
+help = test mysql-replay by Sysbench
+abbr = selftest.my-rep|my-rp|my-r|myr.sb
+
+flow = sb.conf.min : st.my-rep.workload

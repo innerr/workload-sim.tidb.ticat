@@ -18,6 +18,7 @@ if [ -z "${dir2}" ] || [ ! -d "${dir2}" ]; then
 	echo "[:(] dir '${dir2}' not exists" >&2
 	exit 1
 fi
+output_path="${3}"
 
 ###
 
@@ -35,6 +36,6 @@ echo "${f1s}" | while read f1; do
 		"${conda_bin}" run \
 			-n workload-sim \
 			python3 "${mole_dir}/data-analysis/prom_metrics_feature_score_distance.py" \
-			-b "${f1}" -t "${f2}"
+			-b "${f1}" -t "${f2}" | tee "${output_path}"
 	done
 done

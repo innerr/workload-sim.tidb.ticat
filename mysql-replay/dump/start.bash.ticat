@@ -1,0 +1,26 @@
+help = start capture SQL flow by TPC
+abbr = begin|up
+
+[arg]
+host = 127.0.0.1
+dir = /tmp/my-rep/dump
+network-interface = lo
+
+store-host = 127.0.0.1
+store-dir = /tmp/my-rep/store
+
+[arg2env]
+my-rep.dump.host = host
+my-rep.dump.dir = dir
+my-rep.dump.ni = network-interface
+
+my-rep.store.host = store-host
+my-rep.store.dir = store-dir
+
+[env]
+my-rep.dump.host = read
+my-rep.dump.dir = read
+my-rep.dump.ni = read
+
+my-rep.store.host = read
+my-rep.store.dir = read

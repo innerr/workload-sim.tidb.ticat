@@ -52,7 +52,7 @@ bench.gen-tags :
 mole.collect dir=[[dir]]/mole-2 :
 mole.features :
 
-mole.distance [[dir]]/mole-1 [[dir]]/mole-2 :
+mole.distance [[dir]]/mole-1 [[dir]]/mole-2 [[dir]]/distance:
 workload-sim.record :
 
 db.rm : env.reset

@@ -11,6 +11,7 @@ conda.dir = conda-dir
 
 [env]
 conda.dir = read
+mole.distance.report-file-path|report = write
 
 [dep]
 wget = to download conda

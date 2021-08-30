@@ -1,12 +1,17 @@
 help = report worload simulating result and record to table
 
 [env]
+bench.meta.host = read
+bench.meta.port = read
+bench.meta.db-name = read
+
 bench.begin = read
 
 br-t.backup.begin = read
 br-t.backup.end = read
 br-t.restore.begin = read
 br-t.restore.end = read
+br.backup-dir = read
 
 bench.run.begin = read
 bench.run.end = read
@@ -21,5 +26,9 @@ my-rep.rep.stmt.prepares = read
 my-rep.rep.stmt.prepares.err = read
 
 mole.dir = read
+mole.distance.report-file-path = read
+
 bench.tag = read
 tidb.data.tag = read
+
+bench.workload = read

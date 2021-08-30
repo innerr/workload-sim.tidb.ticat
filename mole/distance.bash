@@ -3,7 +3,8 @@ set -euo pipefail
 here=`cd $(dirname ${BASH_SOURCE[0]}) && pwd`
 . "${here}/../helper/helper.bash"
 
-env=`cat "${1}/env"`
+env_file="${1}/env"
+env=`cat "${env_file}"`
 shift
 
 ###
@@ -19,6 +20,11 @@ if [ -z "${dir2}" ] || [ ! -d "${dir2}" ]; then
 	exit 1
 fi
 output_path="${3}"
+if [ -z "${output_path}" ]; then
+	output_path='/dev/null'
+else
+	mkdir -p `dirname "${output_path}"`
+fi
 
 ###
 
@@ -39,3 +45,5 @@ echo "${f1s}" | while read f1; do
 			-b "${f1}" -t "${f2}" | tee "${output_path}"
 	done
 done
+
+echo "mole.distance.report-file-path=${output_path}" >> "${env_file}"

@@ -1,11 +1,11 @@
-help = backup tidb cluster data
+help = backup tidb cluster data, exist-policy: skip|overwrite|error
 abbr = back|bk|b|B
 
 [arg]
 backup-dir|dir = ''
 cluster-name|cluster|name|n|N = ''
 tag|t|T = ''
-skip-exist|skip|s|S = true
+exist-policy|when-exist = overwrite
 threads|thread|thrd = 4
 check-checksum|checksum = true
 target-db|target|db = ''
@@ -17,7 +17,7 @@ br.checksum = check-checksum
 br.target = target-db
 tidb.cluster = cluster-name
 tidb.data.tag = tag
-tidb.backup.skip-exist = skip-exist
+tidb.backup.exist-policy = exist-policy
 
 [env]
 br.backup-dir = read
@@ -25,7 +25,7 @@ br.threads = read
 br.checksum = read
 tidb.cluster = read
 tidb.data.tag = read
-tidb.backup.skip-exist = read
+tidb.backup.exist-policy = read
 
 [dep]
 tiup = to display tidb cluster info and run br

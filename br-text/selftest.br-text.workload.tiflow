@@ -7,14 +7,14 @@ checksum|cs = false
 threads|t|T = 1
 target-db|target|db = ''
 br = br-t
-skip-exist = false
+exist-policy = overwrite
 
 [arg2env]
 br.backup-dir = backup-dir
 br.checksum = checksum
 br.threads = threads
 br.target = target-db
-tidb.backup.skip-exist = skip-exist
+tidb.backup.exist-policy = exist-policy
 
 [env]
 bench.workload = read
@@ -22,16 +22,19 @@ bench.workload = read
 [flow/]
 bench.meta.100 :
 
-db.conf.test cluster=test-br-t : [[br]].patch-kv : db.rm : db.new :
+db.conf.test cluster=test-br-t : db.rm : db.new :
 
 [[bench.workload]].load : [[bench.workload]].run : bench.data.gen-tag :
 
-mark-time [[br]].backup.begin  : [[br]].backup  : mark-time [[br]].backup.end :
-bench.gen-tag add-key=br.threads : bench.dur.record [[br]].backup  :
+mark-time br.backup.begin : br.backup  : mark-time br.backup.end :
+bench.gen-tag add-key=br.threads : bench.dur.record br.backup :
 
-db.clean : db.up :
+db.clean : 
+mark-time [[br]].rewrite.begin : [[br]].rewrite : mark-time [[br]].rewrite.end :
+bench.gen-tag : bench.dur.record [[br]].rewrite :
+db.up :
 
-mark-time [[br]].restore.begin : [[br]].restore : mark-time [[br]].restore.end :
+mark-time [[br]].restore.begin : br.restore : mark-time [[br]].restore.end :
 bench.gen-tag add-key=br.threads : bench.dur.record [[br]].restore :
 
 [[bench.workload]].run : db.rm : bench.dur.show

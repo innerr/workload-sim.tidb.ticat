@@ -37,13 +37,16 @@ fi
 
 ## Handle existed data
 #
-if [ -f "${dir}/backup.lock" ]; then
-	if [ "${skip_exist}" == 'true' ]; then
+if [ -f "${dir}/backupmeta" ]; then
+	if [ "${exist_policy}" == 'skip' ]; then
 		echo "[:-] '${dir}' data exist, skipped"
 		exit 0
+	elif [ "${exist_policy}" == 'error' ]; then
+		echo "[:(] '${dir}' data exist, can't overwrite"
+		exit 1
 	else
 		if [ -z "${dir_root}" ]; then
-			echo "[:(] assert failed, '${dir}' not right"
+			echo "[:(] looks strange, can't remove '${dir}'"
 			exit 1
 		fi
 		echo "[:-] '${dir}' data exist, removing"

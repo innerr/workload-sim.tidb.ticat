@@ -53,6 +53,17 @@ function build_br_t()
 	build_bin "${dir}" 'bin/br' 'make build_br'
 }
 
+function build_rewrite()
+{
+	local dir="${1}"
+	local debug=`to_true "${2}"`
+	if [ "${debug}" == 'true' ]; then
+		build_bin "${dir}" 'target/debug/rewrite' 'cargo build --package backup_text'
+	else
+		build_bin "${dir}" 'target/release/rewrite' 'cargo build --package backup_text --release'
+	fi
+}
+
 function build_tikv()
 {
 	local dir="${1}"

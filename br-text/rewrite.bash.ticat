@@ -1,0 +1,19 @@
+help = rewrite tidb backup data
+
+[arg]
+backup-dir|dir = ''
+tag = ''
+debug-build|debug = false
+
+[arg2env]
+br.backup-dir = backup-dir
+br-text.tikv.debug-build = debug-build
+tidb.data.tag = tag
+
+[env]
+br.backup-dir = read
+br-text.tikv.debug-build = read
+tidb.data.tag = read
+
+[dep]
+cargo = to build rewrite

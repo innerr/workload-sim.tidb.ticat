@@ -4,7 +4,6 @@ abbr = back|bk|b|B
 [arg]
 backup-dir|dir = ''
 cluster-name|cluster|name|n|N = ''
-tag|t|T = ''
 exist-policy|when-exist = overwrite
 threads|thread|thrd = 4
 check-checksum|checksum = true
@@ -16,7 +15,6 @@ br.threads = threads
 br.checksum = check-checksum
 br.target = target-db
 tidb.cluster = cluster-name
-tidb.data.tag = tag
 tidb.backup.exist-policy = exist-policy
 
 [env]
@@ -24,7 +22,6 @@ br.backup-dir = read
 br.threads = read
 br.checksum = read
 tidb.cluster = read
-tidb.data.tag = read
 tidb.backup.exist-policy = read
 
 [dep]

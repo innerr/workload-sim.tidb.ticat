@@ -6,7 +6,6 @@ flow = db.clean : db.start
 [arg]
 backup-dir|dir = ''
 cluster-name|cluster|name|n|N = ''
-tag = ''
 threads|thread|thrd = 4
 check-checksum|checksum = true
 target-db|target|db = ''
@@ -17,14 +16,12 @@ br.threads = threads
 br.checksum = check-checksum
 br.target = target-db
 tidb.cluster = cluster-name
-tidb.data.tag = tag
 
 [env]
 br.backup-dir = read
 br.threads = read
 br.checksum = read
 tidb.cluster = read
-tidb.data.tag = read
 
 [dep]
 tiup = to display tidb cluster info and run br

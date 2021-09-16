@@ -1,0 +1,53 @@
+help = test br-text with workloads
+abbr = selftest.br-text.workloads|workload
+trivial = 1
+
+[arg]
+backup-dir|dir = ''
+checksum|cs = false
+threads|t|T = 1
+target-db|target|db = ''
+exist-policy = overwrite
+
+[arg2env]
+br.backup-dir = backup-dir
+br.checksum = checksum
+br.threads = threads
+br.target = target-db
+tidb.backup.exist-policy = exist-policy
+
+[env]
+bench.workload = read
+
+[flow/]
+bench.meta.100
+db.conf.test cluster=test-br-t
+db.rm+new
+br-t.conf t=16
+
+[[bench.workload]].load
+[[bench.workload]].run
+
+bench.data.gen-tag
+br.relocate-br-dir-by-data-tag
+br.backup
+
+mark-time br-t.sst2txt.begin
+br-t.sst2txt
+mark-time br-t.sst2txt.end
+bench.gen-tag add-key=br-text.threads
+bench.dur.record br-t.sst2txt
+
+mark-time br-t.txt2sst.begin
+br-t.txt2sst
+mark-time br-t.txt2sst.end
+bench.gen-tag add-key=br-text.threads
+bench.dur.record br-t.txt2sst
+
+br.restore.with-timer
+bench.gen-tag add-key=br.threads
+bench.dur.record br.restore
+
+[[bench.workload]].run
+db.rm
+bench.dur.show

@@ -1,0 +1,12 @@
+help = mole test
+abbr = selftest.my-rep.workloads|workload
+trivial = 1
+
+[flow/]
+db.conf.test cluster=test-my-rep
+
+bench.load+backup : bench.restore : my-rep.dump.start : bench.run : my-rep.dump.stop
+
+bench.restore : my-rep.replay.with-timer : env.ls my-rep.rep
+
+db.rm : env.reset

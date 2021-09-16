@@ -1,0 +1,4 @@
+help = setup to use new binary to do br.backup|restore
+
+[env]
+br.bin = write

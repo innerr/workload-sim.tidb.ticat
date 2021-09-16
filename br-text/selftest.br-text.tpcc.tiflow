@@ -1,0 +1,13 @@
+help = test br-text with tpcc and sysbench (and other workloads)
+abbr = selftest.br-t
+trivial = 1
+
+[arg]
+backup-dir|dir = /tmp/test-br
+checksum|cs = true
+threads|t|T = 1
+target-db|target|db = -full
+
+[flow/]
+tpcc.conf.min
+selftest.br-text.workload dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]]

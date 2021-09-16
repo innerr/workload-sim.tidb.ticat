@@ -1,5 +1,5 @@
 help = describe a cluster's features
-abbr = feature|ft
+abbr = features|feature|ft
 trivial = 3
 
 flow = bench.gen-tags

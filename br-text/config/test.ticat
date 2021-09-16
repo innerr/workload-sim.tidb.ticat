@@ -2,18 +2,22 @@ help = setup br-text config
 tags = config
 abbr = t
 
+flow = br-text.precheck
+
 [arg]
 backup-dir|dir|d = /tmp/test-br
-threads|thread|t|T = 1
+threads|thread|t|T = 8
+rewrite-threads|rewrite-thread|rt = 8
 cluster-name|cluster|name|n|N = test-br-t
 check-checksum|checksum = false
 target-db|target|db = ''
 
 [arg2env]
 br.backup-dir = backup-dir
-br.threads = threads
 br.checksum = check-checksum
 br.target = target-db
+br.threads = threads
+br-text.threads = rewrite-threads
 tidb.cluster = cluster-name
 
 [val2env]

@@ -3,18 +3,14 @@ abbr = selftest.br-t
 trivial = 1
 
 [arg]
-## can be 'br' or 'br-t'
-br = br-t
-
 backup-dir|dir = /tmp/test-br
 checksum|cs = true
 threads|t|T = 1
 target-db|target|db = -full
 
 [flow/]
-	tpcc.conf.min               : selftest.br-text.workload br=[[br]] dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset :
-	tpch.conf.min tiflash=false : selftest.br-text.workload br=[[br]] dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset :
-	sb.conf.min                 : selftest.br-text.workload br=[[br]] dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset :
-	types.conf.min              : selftest.br-text.workload br=[[br]] dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset :
-	dbg.echo done
-[/flow]
+tpcc.conf.min               : selftest.br-text.workload dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset
+tpch.conf.min tiflash=false : selftest.br-text.workload dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset
+sb.conf.min                 : selftest.br-text.workload dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset
+types.conf.min              : selftest.br-text.workload dir=[[backup-dir]] cs=[[checksum]] db=[[target-db]] t=[[threads]] : env.reset
+dbg.echo done

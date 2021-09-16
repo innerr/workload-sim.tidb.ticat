@@ -1,4 +1,5 @@
 help = use conda to caculate how similar of two cluster
+abbr = distance
 
 [arg]
 features-dir-of-cluster-1|cluster1|c1 = ''

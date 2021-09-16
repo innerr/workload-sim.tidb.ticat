@@ -1,19 +1,19 @@
-help = rewrite tidb backup data
+help = rewrite tidb backup data from sst to csv
 
 [arg]
 backup-dir|dir = ''
-tag = ''
 debug-build|debug = false
+threads|thread|t|T = 8
 
 [arg2env]
 br.backup-dir = backup-dir
 br-text.tikv.debug-build = debug-build
-tidb.data.tag = tag
+br-text.threads = threads
 
 [env]
 br.backup-dir = read
 br-text.tikv.debug-build = read
-tidb.data.tag = read
+br-text.threads = read
 
 [dep]
-cargo = to build rewrite
+cargo = to build rewrite-tool binary

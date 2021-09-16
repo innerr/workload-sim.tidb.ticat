@@ -1,4 +1,5 @@
 help = mole test
+abbr = selftest.mole.workload
 
 [arg]
 download-dir|dir = ''
@@ -14,4 +15,4 @@ bench.workload = read
 [flow/]
 db.conf.test cluster=test-mole : mole.precheck :  db.rm : db.new :
 
-[[bench.workload]].load : bench.run.workload : mole.collect : db.rm : mole.features : env.reset
+[[bench.workload]].load : [[bench.workload]].run : mole.collect : db.rm : mole.features : env.reset

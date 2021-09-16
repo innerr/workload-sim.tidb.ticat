@@ -28,25 +28,14 @@ br-t.conf t=16
 [[bench.workload]].load
 [[bench.workload]].run
 
-bench.data.gen-tag
-br.relocate-br-dir-by-data-tag
-br.backup
+br.to-tag-dir
+br.backup.with-timer
 
-mark-time br-t.sst2txt.begin
-br-t.sst2txt
-mark-time br-t.sst2txt.end
-bench.gen-tag add-key=br-text.threads
-bench.dur.record br-t.sst2txt
-
-mark-time br-t.txt2sst.begin
-br-t.txt2sst
-mark-time br-t.txt2sst.end
-bench.gen-tag add-key=br-text.threads
-bench.dur.record br-t.txt2sst
+br-t.sst2txt.with-timer
+br-t.txt2sst.with-timer
 
 br.restore.with-timer
-bench.gen-tag add-key=br.threads
-bench.dur.record br.restore
+bench.dur.gen-tag+record event=br.restore add-key=br.threads
 
 [[bench.workload]].run
 db.rm

@@ -1,8 +1,9 @@
 help = setup br-text config
 tags = config
 abbr = conf
+trivial = 3
 
-flow = br-text.precheck
+flow = br-text.patch
 
 [arg]
 backup-dir|dir|d = ''

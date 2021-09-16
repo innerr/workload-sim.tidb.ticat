@@ -1,0 +1,4 @@
+help = setup to use new br binary with text-fmt-supporting to do br.backup|restore
+
+[env]
+br.bin = write

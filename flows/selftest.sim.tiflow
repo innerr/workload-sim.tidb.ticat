@@ -10,49 +10,48 @@ dir = /tmp/test-sim
 [flow/]
 
 ## Clean clusters if last run was not good
-db.rm.yes test-sim-1 :
-db.rm.yes test-sim-2 :
+db.rm.yes test-sim-1
+db.rm.yes test-sim-2
 
 ## Config
-bench.meta.100 :
-br-t.conf checksum=false dir=[[dir]]/br :
-my-rep.conf.test dir=[[dir]]/my-rep/dump store-dir=[[dir]]/my-rep/store :
+bench.meta.100
+br-t.conf checksum=false dir=[[dir]]/br
+my-rep.conf.test dir=[[dir]]/my-rep/dump store-dir=[[dir]]/my-rep/store
 
-mole.precheck :
+mole.precheck
 
 ## Create source cluster
-db.conf.test cluster=test-sim-1 :
-br-t.patch-kv :
-db.rm+new :
+db.conf.test cluster=test-sim-1
+db.rm+new
 
-[[bench.workload]].load :
+[[bench.workload]].load
 
-bench.gen-tags :
-br-t.backup.with-timer :
+br.to-tag-dir
+br.backup.with-timer
 
-my-rep.dump.start :
-bench.run.workload :
-my-rep.dump.stop :
+my-rep.dump.start
+bench.run
+my-rep.dump.stop
 
-mole.collect dir=[[dir]]/mole-1 :
-mole.features :
+mole.collect dir=[[dir]]/mole-1
+mole.features
 
-db.rm :
+db.rm
 
 ## Create dest cluster
-db.conf.test cluster=test-sim-2 :
-# TODO: no need to patch?
-br-t.patch-kv :
-db.rm+new :
+db.conf.test cluster=test-sim-2
+db.rm+new
 
-br-t.restore.with-timer :
-my-rep.replay.with-timer :
+br-t.sst2txt.with-timer
+br-t.txt2sst.with-timer
 
-bench.gen-tags :
-mole.collect dir=[[dir]]/mole-2 :
-mole.features :
+br.restore.with-timer
+my-rep.replay.with-timer
 
-mole.distance [[dir]]/mole-1 [[dir]]/mole-2 [[dir]]/distance:
-workload-sim.record :
+mole.collect dir=[[dir]]/mole-2
+mole.features
 
-db.rm : env.reset
+mole.distance [[dir]]/mole-1 [[dir]]/mole-2 [[dir]]/distance
+workload-sim.record
+
+db.rm

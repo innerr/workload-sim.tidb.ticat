@@ -2,10 +2,10 @@ help = do mysql replay, mark begin|end time to env
 trivial = 1
 
 [env]
-br-t.backup.begin = write
-br-t.backup.end = write
 my-rep.rep.begin = write
 my-rep.rep.end = write
+bench.run.begin = write
+bench.run.end = write
 
 [flow/]
 mark-time my-rep.rep.begin

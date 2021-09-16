@@ -1,6 +1,6 @@
 help = setup mysql-replay for quick test
 tags = config
-abbr = t
+abbr = test|t
 
 [arg]
 host = 127.0.0.1

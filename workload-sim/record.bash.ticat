@@ -7,10 +7,10 @@ bench.meta.db-name = read
 
 bench.begin = read
 
-br-t.backup.begin = read
-br-t.backup.end = read
-br-t.restore.begin = read
-br-t.restore.end = read
+br.backup.begin = read
+br.backup.end = read
+br.restore.begin = read
+br.restore.end = read
 br.backup-dir = read
 
 bench.run.begin = read

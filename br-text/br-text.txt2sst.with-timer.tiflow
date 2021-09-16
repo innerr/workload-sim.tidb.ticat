@@ -1,0 +1,9 @@
+help = do br-text.txt2sst, and record begin|end time
+trivial = 3
+
+[flow/]
+mark-time br-t.txt2sst.begin
+br-t.txt2sst
+mark-time br-t.txt2sst.end
+bench.gen-tag add-key=br-text.threads
+bench.dur.record br-t.txt2sst

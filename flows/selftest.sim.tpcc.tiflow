@@ -1,0 +1,3 @@
+help = run selftest of workload simulating with tpcc
+
+flow = tpcc.conf.min : st.sim

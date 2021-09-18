@@ -1,5 +1,5 @@
 help = test br-text with tpcc and sysbench (and other workloads)
-abbr = selftest.br-t
+abbr = selftest.br-t.tpcc
 trivial = 1
 
 [arg]

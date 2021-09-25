@@ -1,9 +1,9 @@
 help = use conda to caculate how similar of two cluster
-abbr = distance
+abbr = hdistance
 
 [arg]
-features-dir-of-cluster-1|cluster1|c1 = ''
-features-dir-of-cluster-2|cluster2|c2 = ''
+heatmap-dir-of-cluster-1|cluster1|c1 = ''
+heatmap-dir-of-cluster-2|cluster2|c2 = ''
 result-file-path|path = ''
 conda-dir|dir = "${HOME}/miniconda"
 
@@ -12,8 +12,9 @@ conda.dir = conda-dir
 
 [env]
 conda.dir = read
-mole.distance.report-file-path|report = write
+mole.heatmap.distance.report-file-path|report = write
 
 [dep]
 wget = to download conda
+go = to build mole
 python3 = to do calculation in conda

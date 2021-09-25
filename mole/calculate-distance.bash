@@ -36,7 +36,7 @@ f2s=`find "${dir2}" -name scores.csv`
 
 echo "${f1s}" | while read f1; do
 	echo "${f2s}" | while read f2; do
-		echo "--- distance ---"
+		echo "--- distance (data + performance) ---"
 		echo "feature set: ${f1}"
 		echo "feature set: ${f2}"
 		"${conda_bin}" run \
@@ -46,4 +46,6 @@ echo "${f1s}" | while read f1; do
 	done
 done
 
-echo "mole.distance.report-file-path=${output_path}" >> "${env_file}"
+if [ "${output_path}" != '/dev/null' ]; then
+	echo "mole.distance.report-file-path=${output_path}" >> "${env_file}"
+fi

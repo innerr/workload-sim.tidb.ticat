@@ -1,5 +1,6 @@
 help = mole test
 abbr = selftest.mole.workload
+trivial = 1
 
 [arg]
 download-dir|dir = ''

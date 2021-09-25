@@ -1,14 +1,10 @@
 help = test mole with different workloads
+abbr = selftest.mole.distances|distance
 
 [arg]
 dir = /tmp/test-mole
-yaml = test
 
 [flow/]
-tpcc.conf.min               : selftest.mole.workload yaml=[[yaml]] dir=[[dir]]/tpcc
-tpch.conf.min tiflash=false : selftest.mole.workload yaml=[[yaml]] dir=[[dir]]/tpch
-sb.conf.min                 : selftest.mole.workload yaml=[[yaml]] dir=[[dir]]/sb
-
 mole.distance [[dir]]/tpcc [[dir]]/tpch [[dir]]/tpcc_vs_tpch
 mole.distance [[dir]]/tpcc [[dir]]/sb   [[dir]]/tpcc_vs_sb
 mole.distance [[dir]]/tpch [[dir]]/sb   [[dir]]/tpch_vs_sb

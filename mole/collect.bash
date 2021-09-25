@@ -18,7 +18,7 @@ fi
 #
 dir=`must_get_mole_collect_dir "${env}" 'false'`
 
-metrics_yaml=`get_metrics_yaml "${env}" "${here}/metrics.yaml"`
+metrics_yaml=`get_metrics_yaml "${env}" "${here}/../repos/mole/example/metrics.yaml"`
 
 ## Get addresses and begin/end
 #
@@ -51,7 +51,7 @@ echo "[:)] download metrics done"
 
 ## Download heatmap
 #
-heatmap="${bin} keyviz \
+download_heatmap="${bin} keyviz \
 	--subdir=false \
 	-H http://${pd_addr} \
 	-o ""${dir}/heatmap"" \
@@ -60,7 +60,7 @@ heatmap="${bin} keyviz \
 	-f=${begin} \
 	-t=${end}"
 
-echo "${heatmap}"
+echo "${download_heatmap}"
 echo "[:-] download heatmap begin"
-${heatmap}
+${download_heatmap}
 echo "[:)] download heatmap done"

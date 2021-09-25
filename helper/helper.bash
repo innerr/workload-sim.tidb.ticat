@@ -91,12 +91,12 @@ function get_metrics_yaml()
 
 	local yaml=`env_val "${env}" 'mole.metrics'`
 	if [ -z "${yaml}" ]; then
-		echo "[:-] use default metrics yaml" >&2
 		local yaml="${default_path}"
+		echo "[:-] use default metrics yaml file '${yaml}'" >&2
 	fi
 
 	if [ ! -f "${yaml}" ]; then
-		echo "[:(] can't find metrics yaml file '${dir}'" >&2
+		echo "[:(] can't find metrics yaml file '${yaml}'" >&2
 		exit 1
 	fi
 

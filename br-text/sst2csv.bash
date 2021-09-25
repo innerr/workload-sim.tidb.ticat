@@ -21,8 +21,8 @@ if [ -e "${dest_dir}" ]; then
 	rm -rf "${dest_dir}"
 fi
 
-echo "${rewrite_bin}" -t "${threads}" ToCsv "${dir}" "${dest_dir}"
-"${rewrite_bin}" -t "${threads}" ToCsv "${dir}" "${dest_dir}"
+echo "${rewrite_bin}" -t "${threads}" -i "${dir}" -o "${dest_dir}" sst-to-csv --copy-schema-sql
+"${rewrite_bin}" -t "${threads}" -i "${dir}" -o "${dest_dir}" sst-to-csv --copy-schema-sql
 
 echo "[:)] change 'br.backup-dir' to ${dest_dir}"
 echo "br.backup-dir=${dest_dir}" >> "${env_file}"

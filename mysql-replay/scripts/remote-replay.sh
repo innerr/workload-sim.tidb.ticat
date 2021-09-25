@@ -25,7 +25,7 @@ chmod +x "${local_pwd}/install-mysql-replay.sh"
 scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
 	"${local_pwd}/install-mysql-replay.sh" "${replay_host}:${replay_path}"
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-	"${replay_host}" "bash \"${replay_path}/install-mysql-replay.sh\""
+	"${replay_host}" "bash -c \"${replay_path}/install-mysql-replay.sh\""
 
 # dump
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \

@@ -22,8 +22,8 @@ if [ -e "${dest_dir}" ]; then
 	rm -rf "${dest_dir}"
 fi
 
-echo "${rewrite_bin}" -t "${threads}" ToSst "${src_dir}" "${dest_dir}"
-"${rewrite_bin}" -t "${threads}" ToSst "${src_dir}" "${dest_dir}"
+echo "${rewrite_bin}" -t "${threads}" -i "${src_dir}" -o "${dest_dir}" text-to-sst
+"${rewrite_bin}" -t "${threads}" -i "${src_dir}" -o "${dest_dir}" text-to-sst
 
 echo "[:)] change 'br.backup-dir' to ${dest_dir}"
 echo "br.backup-dir=${dest_dir}" >> "${env_file}"

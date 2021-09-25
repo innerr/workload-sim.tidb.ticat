@@ -16,6 +16,7 @@ fi
 
 ## Dirs and defining files
 #
+mole_dir="${here}/../repos/mole"
 dir=`must_get_mole_collect_dir "${env}" 'false'`
 
 metrics_yaml=`get_metrics_yaml "${env}" "${here}/../repos/mole/example/metrics.yaml"`

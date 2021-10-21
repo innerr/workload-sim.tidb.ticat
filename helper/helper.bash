@@ -64,6 +64,12 @@ function build_rewrite()
 	fi
 }
 
+function build_masker()
+{
+	local dir="${1}"
+	build_bin "${dir}" 'bin/sql-masker' 'make'
+}
+
 function build_tikv()
 {
 	local dir="${1}"

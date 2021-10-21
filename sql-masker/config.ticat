@@ -1,0 +1,14 @@
+help = setup sql-masker config
+tags = config
+abbr = conf
+trivial = 3
+
+[arg]
+db = test
+ddl-dir = ''
+threads|thread|t|T = 40
+
+[arg2env]
+masker.db = db
+masker.ddl-dir = ddl-dir
+masker.threads = threads

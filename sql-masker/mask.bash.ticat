@@ -1,0 +1,24 @@
+help = mask captured mysql events
+
+[arg]
+func = identical
+db = test
+ddl-dir = ''
+output-dir = ''
+threads|thread|t|T = 40
+
+[arg2env]
+masker.func = func
+masker.db = db
+masker.ddl-dir = ddl-dir
+masker.threads = threads
+
+[env]
+my-rep.store.dir = read
+masker.func = read
+masker.db = read
+masker.ddl-dir = read
+masker.threads = read
+
+[dep]
+go = to build sql-masker

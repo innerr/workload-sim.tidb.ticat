@@ -29,5 +29,6 @@ else
 	action="sst-to-text"
 fi
 
-echo "${rewrite_bin}" -t "${threads}" -i "${dir}" -o "${dest_dir}" "${action}"
-"${rewrite_bin}" -t "${threads}" -i "${dir}" -o "${dest_dir}" "${action}"
+mkdir -p "${dest_dir}"
+echo "${rewrite_bin}" -t "${threads}" -i "local://${dir}" -o "local://${dest_dir}" "${action}"
+"${rewrite_bin}" -t "${threads}" -i "local://${dir}" -o "local://${dest_dir}" "${action}"

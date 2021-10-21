@@ -3,17 +3,19 @@ help = rewrite tidb backup data from sst to csv
 [arg]
 backup-dir|dir = ''
 debug-build|debug = false
-threads|thread|t|T = 8
+compressed = true
 
 [arg2env]
 br.backup-dir = backup-dir
 br-text.tikv.debug-build = debug-build
 br-text.threads = threads
+br-text.compressed = compressed
 
 [env]
 br.backup-dir = read
 br-text.tikv.debug-build = read
 br-text.threads = read
+br-text.compressed = read
 
 [dep]
 cargo = to build rewrite-tool binary

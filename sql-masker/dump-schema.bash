@@ -17,8 +17,8 @@ ddl_dir="${store_dir}/ddl"
 output_file="${ddl_dir}/schema-${db}.sql"
 
 mkdir -p "${ddl_dir}"
-echo mysqldump -h "${host}" -P "${port}" -u "${user}" -p --no-data "${db}"
-mysqldump -h "${host}" -P "${port}" -u "${user}" -p --no-data "${db}" > "${output_file}"
+echo mysqldump -h "${host}" -P "${port}" -u "${user}" --no-data "${db}"
+mysqldump -h "${host}" -P "${port}" -u "${user}" --no-data "${db}" > "${output_file}"
 
 echo "[:)] change 'masker.ddl-dir' to ${ddl_dir}"
 echo "masker.ddl-dir=${ddl_dir}" >> "${env_file}"

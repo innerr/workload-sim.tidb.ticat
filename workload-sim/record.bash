@@ -15,17 +15,17 @@ echo "    test id:  ${bench_begin}"
 echo "    workload: ${workload}"
 echo "    bench tag: ${bench_tag}"
 
-backup_begin=`must_env_val "${env}" 'br.backup.begin'`
-backup_end=`must_env_val "${env}" 'br.backup.end'`
+backup_begin=`must_env_val "${env}" 'br-t.backup.begin'`
+backup_end=`must_env_val "${env}" 'br-t.backup.end'`
 ((backup_dur=backup_end-backup_begin))
-echo "duration of br.backup:"
+echo "duration of br-t.backup:"
 echo "    ${backup_dur}s"
 
-restore_begin=`must_env_val "${env}" 'br.restore.begin'`
-restore_end=`must_env_val "${env}" 'br.restore.end'`
-((restore_dur=restore_end-restore_begin))
-echo "duration of br.restore:"
-echo "    ${restore_dur}s"
+# restore_begin=`must_env_val "${env}" 'br.restore.begin'`
+# restore_end=`must_env_val "${env}" 'br.restore.end'`
+# ((restore_dur=restore_end-restore_begin))
+# echo "duration of br.restore:"
+# echo "    ${restore_dur}s"
 
 backup_dir=`must_env_val "${env}" 'br.backup-dir'`
 backup_size=`du -sh "${backup_dir}"`
@@ -69,3 +69,5 @@ mole_distance_report=`must_env_val "${env}" 'mole.distance.report-file-path'`
 cat "${mole_distance_report}"
 # TODO:
 mole_dir=`must_get_mole_collect_dir "${env}" 'false'`
+
+exit 42

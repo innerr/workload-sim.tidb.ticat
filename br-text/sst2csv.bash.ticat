@@ -11,9 +11,10 @@ br-text.tikv.debug-build = debug-build
 br-text.threads = threads
 
 [env]
-br.backup-dir = read : write
+br.backup-dir = read
 br-text.tikv.debug-build = read
 br-text.threads = read
+lightning.data-source-dir = write
 
 [dep]
 cargo = to build rewrite-tool binary

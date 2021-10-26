@@ -1,0 +1,6 @@
+help = backup tidb cluster data using patched br
+trivial = 1
+
+[flow/]
+br-t.set-bin
+br.backup

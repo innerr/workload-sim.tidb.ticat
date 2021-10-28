@@ -21,11 +21,17 @@ backup_end=`must_env_val "${env}" 'br-t.backup.end'`
 echo "duration of br-t.backup:"
 echo "    ${backup_dur}s"
 
-# restore_begin=`must_env_val "${env}" 'br.restore.begin'`
-# restore_end=`must_env_val "${env}" 'br.restore.end'`
-# ((restore_dur=restore_end-restore_begin))
-# echo "duration of br.restore:"
-# echo "    ${restore_dur}s"
+restore_begin=`must_env_val "${env}" 'lightning.csv.begin'`
+restore_end=`must_env_val "${env}" 'lightning.csv.end'`
+((restore_dur=restore_end-restore_begin))
+echo "duration of lightning.csv import:"
+echo "    ${restore_dur}s"
+
+mask_begin=`must_env_val "${env}" 'sql-masker.mask.begin'`
+mask_end=`must_env_val "${env}" 'sql-masker.mask.end'`
+((mask_dur=mask_end-mask_begin))
+echo "duration of sql-masker.mask:"
+echo "    ${mask_dur}s"
 
 backup_dir=`must_env_val "${env}" 'br.backup-dir'`
 backup_size=`du -sh "${backup_dir}"`
@@ -48,6 +54,10 @@ replay_dir=`must_env_val "${env}" 'my-rep.store.dir'`
 replay_size=`du -sh "${replay_dir}"`
 echo "flow dump/replay size:"
 echo "    ${replay_size}"
+
+mask_stats=`must_env_val "${env}" 'sql-masker.mask.stats'`
+echo "mask stats:"
+echo "    ${mask_stats}"
 
 queries=`must_env_val "${env}" 'my-rep.rep.queries'`
 queries_err=`must_env_val "${env}" 'my-rep.rep.queries.err'`

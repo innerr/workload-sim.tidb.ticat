@@ -1,0 +1,11 @@
+help = do mysql replay, mark begin|end time to env
+trivial = 1
+
+[env]
+my-rep.text-dump.begin = write
+my-rep.text-dump.end = write
+
+[flow/]
+mark-time my-rep.text-dump.begin
+my-rep.text-dump
+mark-time my-rep.text-dump.end

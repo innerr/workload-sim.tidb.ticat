@@ -1,0 +1,14 @@
+help = dump SQL flow into text format on remote server
+abbr = text
+
+[arg]
+host = 127.0.0.1
+dir = /tmp/my-rep/store
+
+[arg2env]
+my-rep.store.host = host
+my-rep.store.dir = dir
+
+[env]
+my-rep.store.host = read
+my-rep.store.dir = read

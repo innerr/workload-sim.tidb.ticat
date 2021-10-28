@@ -10,15 +10,15 @@ db = test
 mysql.host = host
 mysql.port = port
 mysql.user = user
-masker.db = db
+sql-masker.mask.db = db
 
 [env]
 my-rep.store.dir = read
 mysql.host = read
 mysql.port = read
 mysql.user = read
-masker.db = read
-masker.ddl-dir = write
+sql-masker.mask.db = read
+sql-masker.mask.ddl-dir = write
 
 [dep]
 mysqldump = to dump schema

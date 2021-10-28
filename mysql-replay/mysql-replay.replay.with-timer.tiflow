@@ -4,12 +4,8 @@ trivial = 1
 [env]
 my-rep.rep.begin = write
 my-rep.rep.end = write
-bench.run.begin = write
-bench.run.end = write
 
 [flow/]
 mark-time my-rep.rep.begin
-mark-time bench.run.begin
 my-rep.replay
-mark-time bench.run.end
 mark-time my-rep.rep.end

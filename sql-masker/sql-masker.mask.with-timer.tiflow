@@ -1,0 +1,7 @@
+help = do sql-masker.mask, and record begin|end time
+trivial = 3
+
+[flow/]
+mark-time sql-masker.mask.begin
+sql-masker.mask
+mark-time sql-masker.mask.end

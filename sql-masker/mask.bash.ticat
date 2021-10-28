@@ -1,24 +1,25 @@
 help = mask captured mysql events
 
 [arg]
-func = identical
+func = workload-sim
 db = test
 ddl-dir = ''
 output-dir = ''
 threads|thread|t|T = 40
 
 [arg2env]
-masker.func = func
-masker.db = db
-masker.ddl-dir = ddl-dir
-masker.threads = threads
+sql-masker.mask.func = func
+sql-masker.mask.db = db
+sql-masker.mask.ddl-dir = ddl-dir
+sql-masker.mask.threads = threads
 
 [env]
 my-rep.store.dir = read
-masker.func = read
-masker.db = read
-masker.ddl-dir = read
-masker.threads = read
+sql-masker.mask.func = read
+sql-masker.mask.db = read
+sql-masker.mask.ddl-dir = read
+sql-masker.mask.threads = read
+sql-masker.mask.stats = write
 
 [dep]
 go = to build sql-masker

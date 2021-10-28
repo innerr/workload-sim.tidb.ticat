@@ -1,0 +1,7 @@
+help = do br-text.sst2csv, and record begin|end time
+trivial = 3
+
+[flow/]
+mark-time br-t.sst2csv.begin
+br-t.sst2csv
+mark-time br-t.sst2csv.end

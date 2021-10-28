@@ -9,6 +9,6 @@ ddl-dir = ''
 threads|thread|t|T = 40
 
 [arg2env]
-masker.db = db
-masker.ddl-dir = ddl-dir
-masker.threads = threads
+sql-masker.mask.db = db
+sql-masker.mask.ddl-dir = ddl-dir
+sql-masker.mask.threads = threads

@@ -10,7 +10,6 @@ shift
 func=`must_env_val "${env}" 'sql-masker.mask.func'`
 db=`must_env_val "${env}" 'sql-masker.mask.db'`
 ddl_dir=`must_env_val "${env}" 'sql-masker.mask.ddl-dir'`
-threads=`must_env_val "${env}" 'sql-masker.mask.threads'`
 
 store_dir=`must_env_val "${env}" 'my-rep.store.dir'`
 input_dir="${store_dir}/events"

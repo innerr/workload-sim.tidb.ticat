@@ -1,5 +1,4 @@
 help = set br binary to patched br
-trivial = 1
 
 [env]
 br.bin = write

@@ -3,6 +3,7 @@ help = rewrite tidb backup data from sst to csv
 [arg]
 backup-dir|dir = ''
 debug-build|debug = false
+threads|thread|t|T = 8
 compressed = true
 
 [arg2env]

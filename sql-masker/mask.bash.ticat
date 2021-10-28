@@ -1,0 +1,22 @@
+help = mask captured mysql events
+
+[arg]
+func = workload-sim
+db = test
+ddl-dir = ''
+output-dir = ''
+
+[arg2env]
+sql-masker.mask.func = func
+sql-masker.mask.db = db
+sql-masker.mask.ddl-dir = ddl-dir
+
+[env]
+my-rep.store.dir = read
+sql-masker.mask.func = read
+sql-masker.mask.db = read
+sql-masker.mask.ddl-dir = read
+sql-masker.mask.stats = write
+
+[dep]
+go = to build sql-masker

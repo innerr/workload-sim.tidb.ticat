@@ -1,0 +1,24 @@
+help = dump schema using mysqldump
+
+[arg]
+host = 127.0.0.1
+port = 4000
+user = root
+db = test
+
+[arg2env]
+mysql.host = host
+mysql.port = port
+mysql.user = user
+sql-masker.mask.db = db
+
+[env]
+my-rep.store.dir = read
+mysql.host = read
+mysql.port = read
+mysql.user = read
+sql-masker.mask.db = read
+sql-masker.mask.ddl-dir = write
+
+[dep]
+mysqldump = to dump schema

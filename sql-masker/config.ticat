@@ -1,0 +1,11 @@
+help = setup sql-masker config
+tags = config
+abbr = conf
+
+[arg]
+db = test
+ddl-dir = ''
+
+[arg2env]
+sql-masker.mask.db = db
+sql-masker.mask.ddl-dir = ddl-dir

@@ -21,5 +21,14 @@ if [ -e "${dest_dir}" ]; then
 	rm -rf "${dest_dir}"
 fi
 
-echo "${rewrite_bin}" -t "${threads}" -i "${dir}" -o "${dest_dir}" sst-to-text
-"${rewrite_bin}" -t "${threads}" -i "${dir}" -o "${dest_dir}" sst-to-text
+compressed=`must_env_val "${env}" 'br-text.compressed'`
+compressed=`to_true "${compressed}"`
+if [ "${compressed}" == 'true' ]; then
+	action="sst-to-ztext"
+else
+	action="sst-to-text"
+fi
+
+mkdir -p "${dest_dir}"
+echo "${rewrite_bin}" -t "${threads}" -i "local://${dir}" -o "local://${dest_dir}" "${action}"
+"${rewrite_bin}" -t "${threads}" -i "local://${dir}" -o "local://${dest_dir}" "${action}"

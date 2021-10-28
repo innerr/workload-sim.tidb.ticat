@@ -5,6 +5,9 @@ abbr = st.sim
 
 [arg]
 dir = /tmp/test-sim
+db = test
+yaml = test
+lightning-tmp-dir = /data-b/lightning-tmp-dir
 
 
 [flow/]
@@ -17,17 +20,19 @@ db.rm.yes test-sim-2
 bench.meta.100
 br-t.conf checksum=false dir=[[dir]]/br
 my-rep.conf.test dir=[[dir]]/my-rep/dump store-dir=[[dir]]/my-rep/store
+mask.config db=[[db]]
+lightning.config tmp-dir=[[lightning-tmp-dir]] checksum=false
 
 mole.precheck
 
 ## Create source cluster
-db.conf.test cluster=test-sim-1
+db.conf.test yaml=[[yaml]] cluster=test-sim-1
 db.rm+new
 
 [[bench.workload]].load
 
 br.to-tag-dir
-br.backup.with-timer
+br-t.backup.with-timer
 
 my-rep.dump.start
 bench.run
@@ -38,14 +43,17 @@ mole.features
 
 db.rm
 
+br-t.sst2csv.with-timer
+
+my-rep.text-dump.with-timer
+mask.schema-from-lightning-src
+mask.mask.with-timer
+
 ## Create dest cluster
-db.conf.test cluster=test-sim-2
+db.conf.test yaml=[[yaml]] cluster=test-sim-2
 db.rm+new
 
-br-t.sst2txt.with-timer
-br-t.txt2sst.with-timer
-
-br.restore.with-timer
+lightning.csv.with-timer
 my-rep.replay.with-timer
 
 mole.collect dir=[[dir]]/mole-2

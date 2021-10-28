@@ -15,17 +15,23 @@ echo "    test id:  ${bench_begin}"
 echo "    workload: ${workload}"
 echo "    bench tag: ${bench_tag}"
 
-backup_begin=`must_env_val "${env}" 'br.backup.begin'`
-backup_end=`must_env_val "${env}" 'br.backup.end'`
+backup_begin=`must_env_val "${env}" 'br-t.backup.begin'`
+backup_end=`must_env_val "${env}" 'br-t.backup.end'`
 ((backup_dur=backup_end-backup_begin))
-echo "duration of br.backup:"
+echo "duration of br-t.backup:"
 echo "    ${backup_dur}s"
 
-restore_begin=`must_env_val "${env}" 'br.restore.begin'`
-restore_end=`must_env_val "${env}" 'br.restore.end'`
+restore_begin=`must_env_val "${env}" 'lightning.csv.begin'`
+restore_end=`must_env_val "${env}" 'lightning.csv.end'`
 ((restore_dur=restore_end-restore_begin))
-echo "duration of br.restore:"
+echo "duration of lightning.csv import:"
 echo "    ${restore_dur}s"
+
+mask_begin=`must_env_val "${env}" 'sql-masker.mask.begin'`
+mask_end=`must_env_val "${env}" 'sql-masker.mask.end'`
+((mask_dur=mask_end-mask_begin))
+echo "duration of sql-masker.mask:"
+echo "    ${mask_dur}s"
 
 backup_dir=`must_env_val "${env}" 'br.backup-dir'`
 backup_size=`du -sh "${backup_dir}"`
@@ -49,6 +55,10 @@ replay_size=`du -sh "${replay_dir}"`
 echo "flow dump/replay size:"
 echo "    ${replay_size}"
 
+mask_stats=`must_env_val "${env}" 'sql-masker.mask.stats'`
+echo "mask stats:"
+echo "    ${mask_stats}"
+
 queries=`must_env_val "${env}" 'my-rep.rep.queries'`
 queries_err=`must_env_val "${env}" 'my-rep.rep.queries.err'`
 echo "replay queries:"
@@ -62,8 +72,8 @@ echo "    ERR: ${stmt_err}"
 stmt_pp=`must_env_val "${env}" 'my-rep.rep.stmt.prepares'`
 stmt_pp_err=`must_env_val "${env}" 'my-rep.rep.stmt.prepares.err'`
 echo "replay stmt prepares:"
-echo "    OK:  ${stmt}"
-echo "    ERR: ${stmt_err}"
+echo "    OK:  ${stmt_pp}"
+echo "    ERR: ${stmt_pp_err}"
 
 mole_distance_report=`must_env_val "${env}" 'mole.distance.report-file-path'`
 cat "${mole_distance_report}"

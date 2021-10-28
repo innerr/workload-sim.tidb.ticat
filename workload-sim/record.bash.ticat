@@ -7,11 +7,15 @@ bench.meta.db-name = read
 
 bench.begin = read
 
-br.backup.begin = read
-br.backup.end = read
-br.restore.begin = read
-br.restore.end = read
+br-t.backup.begin = read
+br-t.backup.end = read
+lightning.csv.begin = read
+lightning.csv.end = read
 br.backup-dir = read
+
+sql-masker.mask.begin = read
+sql-masker.mask.end = read
+sql-masker.mask.stats = read
 
 bench.run.begin = read
 bench.run.end = read

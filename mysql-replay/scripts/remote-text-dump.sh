@@ -5,11 +5,10 @@ set -exuo pipefail
 
 replay_host="${1}"
 replay_path="${2}"
-target_dsn="${3}"
-local_pwd="${4}"
+local_pwd="${3}"
 
 may_install_mysql_replay "${replay_host}" "${replay_path}" "${local_pwd}"
 
-# play
+# text dump
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-	"${replay_host}" "bash -c 'cd \"${replay_path}\" && \"\$HOME/bin/mysql-replay\" text play --target-dsn \"${target_dsn}\" events 2>&1 | tee play.log'"
+	"${replay_host}" "bash -c 'cd \"${replay_path}\" && \"\$HOME/bin/mysql-replay\" text dump -o events data.*.pcap 2>&1 | tee dump.log'"

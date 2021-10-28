@@ -15,3 +15,6 @@
 	path = repos/tidb
 	url = https://github.com/NingLin-P/tidb
 	branch = br-text
+[submodule "repos/sql-masker"]
+	path = repos/sql-masker
+	url = https://github.com/BugenZhao/sql-masker

@@ -72,12 +72,10 @@ echo "    ERR: ${stmt_err}"
 stmt_pp=`must_env_val "${env}" 'my-rep.rep.stmt.prepares'`
 stmt_pp_err=`must_env_val "${env}" 'my-rep.rep.stmt.prepares.err'`
 echo "replay stmt prepares:"
-echo "    OK:  ${stmt}"
-echo "    ERR: ${stmt_err}"
+echo "    OK:  ${stmt_pp}"
+echo "    ERR: ${stmt_pp_err}"
 
 mole_distance_report=`must_env_val "${env}" 'mole.distance.report-file-path'`
 cat "${mole_distance_report}"
 # TODO:
 mole_dir=`must_get_mole_collect_dir "${env}" 'false'`
-
-exit 42

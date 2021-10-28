@@ -21,7 +21,7 @@ bench.meta.100
 br-t.conf checksum=false dir=[[dir]]/br
 my-rep.conf.test dir=[[dir]]/my-rep/dump store-dir=[[dir]]/my-rep/store
 mask.config db=[[db]]
-lightning.config tmp-dir=[[lightning-tmp-dir]]
+lightning.config tmp-dir=[[lightning-tmp-dir]] checksum=false
 
 mole.precheck
 

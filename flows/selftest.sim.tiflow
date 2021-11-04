@@ -46,7 +46,8 @@ db.rm
 br-t.sst2csv.with-timer
 
 my-rep.text-dump.with-timer
-mask.schema-from-lightning-src
+mask.name-map-from-br
+mask.schema-from-br
 mask.mask.with-timer
 
 ## Create dest cluster

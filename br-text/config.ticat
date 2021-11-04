@@ -25,3 +25,4 @@ tidb.data.tag = tag
 
 [val2env]
 tidb.backupper = br-text
+tidb.backup.exist-policy = overwrite

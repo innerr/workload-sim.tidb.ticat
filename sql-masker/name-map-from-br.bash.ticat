@@ -1,0 +1,9 @@
+help = copy schema from lightning data source dir
+
+[env]
+br.backup-dir = read
+my-rep.store.dir = read
+sql-masker.mask.name-map = write
+
+[dep]
+go = to build sql-masker

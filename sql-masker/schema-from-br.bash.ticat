@@ -2,5 +2,5 @@ help = copy schema from lightning data source dir
 
 [env]
 my-rep.store.dir = read
-lightning.data-source-dir = read
+br.backup-dir = read
 sql-masker.mask.ddl-dir = write

@@ -5,17 +5,20 @@ func = workload-sim
 db = test
 ddl-dir = ''
 output-dir = ''
+name-map = ''
 
 [arg2env]
 sql-masker.mask.func = func
 sql-masker.mask.db = db
 sql-masker.mask.ddl-dir = ddl-dir
+sql-masker.mask.name-map = name-map
 
 [env]
 my-rep.store.dir = read
 sql-masker.mask.func = read
 sql-masker.mask.db = read
 sql-masker.mask.ddl-dir = read
+sql-masker.mask.name-map = may-read
 sql-masker.mask.stats = write
 
 [dep]
